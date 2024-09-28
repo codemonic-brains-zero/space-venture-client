@@ -26,5 +26,3 @@ dist-ssr
 # Environment variables
 .env
 .env.local
-
-VITE_SPACE_VENTURE_API_KEY = "AIzaSyBCB3qOW6BnNdDx6F8N2pBOzUAoz4bpKI4" 
