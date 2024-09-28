@@ -18,24 +18,15 @@ import MessOutlets from "./pages/mess/MessOutlets";
 
 function App() {
   return (
-    <>
-    <UserDashboard/>
-    </>
-  );
-}
-
-export default App;
-
-
-{/* <AuthProvider>
+ <AuthProvider>
       <Router>
         <Routes>
-          {/* Public Routes}
+          {/* Public Routes */}
             <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<Home />} />
 
-          {/* Protected Routes }
+          {/* Protected Routes */}
             <Route element={<Layout />}>
             <Route element={<ProtectedRoute allowedTypes={["User"]} />}>
               <Route path="/user-dashboard" element={<UserDashboard />} />
@@ -55,8 +46,12 @@ export default App;
             </Route>
             </Route>
 
-          {/* Redirect all other paths to login if not matched}
+          {/* Redirect all other paths to login if not matched */}
             <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
-      </AuthProvider> */}
+      </AuthProvider> 
+    );
+  }
+  
+  export default App;
