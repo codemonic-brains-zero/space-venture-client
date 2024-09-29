@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ResidencyOwnerDashboard = () => {
+const ResidencyOwnerHome = () => {
     return (
         <div>
             ResidencyOwnerDashboard
@@ -8,4 +8,5 @@ const ResidencyOwnerDashboard = () => {
     )
 }
 
-export default ResidencyOwnerDashboard
+export default ResidencyOwnerHome
+

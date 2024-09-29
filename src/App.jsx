@@ -5,8 +5,6 @@ import Home from "./pages/home/Home";
 import Login from "./pages/home/auth/Login";
 import SignUp from "./pages/home/auth/SignUp";
 import ProtectedRoute from "./private/ProtectedRoute";
-import ResidencyOwnerDashboard from "./pages/recidencies/ResidencyOwnerDashboard";
-import MultiMessManagerDashboard from "./pages/mess/MultiMessManagerDashboard";
 import { AuthProvider } from "./contexts/AuthContext";
 import Layout from "./pages/Layout";
 import RegisterRoom from "./pages/recidencies/RegisterRoom";
@@ -15,6 +13,8 @@ import RentARoom from "./pages/client/RentARoom";
 import RoomMates from "./pages/client/RoomMates";
 import MessOutlets from "./pages/mess/MessOutlets";
 import UserHome from "./pages/client/UserHome";
+import MultiMessManagerHome from "./pages/mess/MultiMessManagerHome";
+import ResidencyOwnerHome from "./pages/recidencies/ResidencyOwnerHome";
 
 function App() {
   return (
@@ -37,12 +37,12 @@ function App() {
             </Route>
 
             <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>
-              <Route path="/residency-owner-dashboard" element={<ResidencyOwnerDashboard />} />
+              <Route path="/residency-owner-home" element={<ResidencyOwnerHome />} />
               <Route path="/register-room" element={<RegisterRoom />} />
               </Route>
 
               <Route element={<ProtectedRoute allowedTypes={["Multi-Mess Manager"]} />}>
-              <Route path="/multi-mess-manager-dashboard" element={<MultiMessManagerDashboard />} />
+              <Route path="/multi-mess-manager-home" element={<MultiMessManagerHome />} />
             </Route>
             </Route>
 
