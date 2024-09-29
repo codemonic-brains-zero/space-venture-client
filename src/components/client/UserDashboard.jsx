@@ -1,9 +1,9 @@
 import React from 'react';
 import UserNav from './UserNav';
 import img1 from '../../assets/UserDashboard/1-.png'
-import Gallery from '../client/Gallery';
-import Services from '../client/Services';
-import About from '../client/About';
+import Gallery from './Gallery';
+import Services from './Services';
+import About from './About';
 
 const UserDashboard = () => {
   return (
