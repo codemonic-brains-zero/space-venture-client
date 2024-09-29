@@ -1,12 +1,17 @@
 import React from 'react'
-import UserNav from '../../components/client/UserNav'
 import UserDashboard from '../../components/client/UserDashboard'
+import Gallery from '../../components/client/Gallery';
+import Services from '../../components/client/Services';
+import About from '../../components/client/About';
 
 const UserHome = () => {
     return (
         <>
-            {/* <UserNav /> */}
+            {/* Navbar */}
             <UserDashboard />
+            <Gallery />
+            <Services />
+            <About />
         </>
     )
 }

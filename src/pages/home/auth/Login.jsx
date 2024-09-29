@@ -41,7 +41,7 @@ const Login = () => {
 
             // Redirect based on userType
             if (formData.userType === "User") {
-                navigate("/user-dashboard");
+                navigate("/user-home");
             } else if (formData.userType === "Residency Owner") {
                 navigate("/residency-owner-dashboard");
             } else if (formData.userType === "Multi-Mess Manager") {
@@ -59,7 +59,8 @@ const Login = () => {
         const { email, password } = formData;
 
         try {
-            await login(email, password); // Uses the login function from the context
+            // Use signInWithEmailAndPassword for email/password sign-in
+            await signInWithEmailAndPassword(auth, email, password);
 
             // Redirect based on userType
             if (formData.userType === "User") {

@@ -5,7 +5,6 @@ import Home from "./pages/home/Home";
 import Login from "./pages/home/auth/Login";
 import SignUp from "./pages/home/auth/SignUp";
 import ProtectedRoute from "./private/ProtectedRoute";
-import UserDashboard from "./components/client/UserDashboard";
 import ResidencyOwnerDashboard from "./pages/recidencies/ResidencyOwnerDashboard";
 import MultiMessManagerDashboard from "./pages/mess/MultiMessManagerDashboard";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -15,6 +14,7 @@ import BookRooms from "./pages/client/BookRooms";
 import RentARoom from "./pages/client/RentARoom";
 import RoomMates from "./pages/client/RoomMates";
 import MessOutlets from "./pages/mess/MessOutlets";
+import UserHome from "./pages/client/UserHome";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
           {/* Protected Routes */}
             <Route element={<Layout />}>
             <Route element={<ProtectedRoute allowedTypes={["User"]} />}>
-              <Route path="/user-dashboard" element={<UserDashboard />} />
+              <Route path="/user-home" element={<UserHome />} />
               <Route path="/book-rooms" element={<BookRooms />} />
               <Route path="/rent-a-room" element={<RentARoom />} />
               <Route path="/room-mates" element={<RoomMates />} />

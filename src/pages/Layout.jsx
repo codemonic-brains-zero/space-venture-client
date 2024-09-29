@@ -4,7 +4,7 @@ import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import RecidencyNav from '../components/recidencies/RecidencyNav';
 import MessNav from '../components/mess/MessNav';
-import UserHome from './client/UserHome';
+// import UserHome from './client/UserHome';
 import UserNav from '../components/client/UserNav';
 
 const Layout = () => {
