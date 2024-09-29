@@ -84,9 +84,9 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-            <div className="max-w-sm w-full bg-gray-200 p-8 rounded-lg shadow-md">
-                <h1 className="text-2xl font-bold mb-2 text-center">Login</h1>
+        <div className="min-h-screen flex items-center justify-center bg-[#F5E3E0] p-4">
+            <div className="max-w-sm w-full bg-[#E8B4BC] p-8 rounded-lg shadow-md">
+                <h1 className="text-2xl font-bold mb-2 text-center text-[#3A3238]">Login</h1>
 
                 {/* User Type Selection Buttons */}
                 <div className="flex space-x-4 mb-6">
@@ -94,8 +94,8 @@ const Login = () => {
                         type="button"
                         onClick={() => handleUserTypeChange("User")}
                         className={`w-full mb-2 h-16 flex items-center justify-center rounded-lg text-sm font-bold ${formData.userType === "User"
-                            ? "bg-purple-500 text-white hover:border hover:border-purple-800 hover:text-purple-800 hover:bg-white"
-                            : "bg-purple-200 text-purple-800 hover:border hover:border-purple-800 hover:text-purple-800 hover:bg-white"
+                            ? "bg-[#D282A6] text-white hover:border hover:border-[#6E4555] hover:text-[#6E4555] hover:bg-white"
+                            : "bg-[#E8B4BC] text-[#6E4555] hover:border hover:border-[#6E4555] hover:text-[#6E4555] hover:bg-white"
                             }`}
                     >
                         User
@@ -104,8 +104,8 @@ const Login = () => {
                         type="button"
                         onClick={() => handleUserTypeChange("Residency Owner")}
                         className={`w-full mb-2 h-16 flex items-center justify-center rounded-lg text-sm font-bold ${formData.userType === "Residency Owner"
-                            ? "bg-blue-500 text-white hover:border hover:border-blue-500 hover:text-blue-800 hover:bg-white"
-                            : "bg-blue-200 text-blue-800 hover:border hover:border-blue-500 hover:text-blue-800 hover:bg-white"
+                            ? "bg-[#D282A6] text-white hover:border hover:border-[#6E4555] hover:text-[#6E4555] hover:bg-white"
+                            : "bg-[#E8B4BC] text-[#6E4555] hover:border hover:border-[#6E4555] hover:text-[#6E4555] hover:bg-white"
                             }`}
                     >
                         Residency Owner
@@ -114,15 +114,15 @@ const Login = () => {
                         type="button"
                         onClick={() => handleUserTypeChange("Multi-Mess Manager")}
                         className={`w-full h-16 flex items-center justify-center rounded-lg text-sm font-bold ${formData.userType === "Multi-Mess Manager"
-                            ? "bg-green-500 text-white hover:border hover:border-green-800 hover:text-green-800 hover:bg-white"
-                            : "bg-green-200 text-green-800 hover:border hover:border-green-800 hover:text-green-800 hover:bg-white"
+                            ? "bg-[#D282A6] text-white hover:border hover:border-[#6E4555] hover:text-[#6E4555] hover:bg-white"
+                            : "bg-[#E8B4BC] text-[#6E4555] hover:border hover:border-[#6E4555] hover:text-[#6E4555] hover:bg-white"
                             }`}
                     >
                         Multi-Mess Manager
                     </button>
                 </div>
 
-                <p className="text-center text-sm text-gray-600 mb-6">
+                <p className="text-center text-sm text-[#3A3238] mb-6">
                     {formData.userType ? `Please log in as ${formData.userType}` : "Please log in to your account"}
                 </p>
 
@@ -130,7 +130,7 @@ const Login = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 gap-4">
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-[#3A3238]">
                                 Email
                             </label>
                             <input
@@ -139,12 +139,12 @@ const Login = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-[#D282A6] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D282A6]"
                                 required
                             />
                         </div>
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="password" className="block text-sm font-medium text-[#3A3238]">
                                 Password
                             </label>
                             <input
@@ -153,7 +153,7 @@ const Login = () => {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-[#D282A6] rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#D282A6]"
                                 required
                             />
                         </div>
@@ -162,7 +162,7 @@ const Login = () => {
                     <div>
                         <button
                             type="submit"
-                            className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-white hover:text-blue-800 hover:border hover:border-blue-800"
+                            className="w-full py-2 px-4 bg-[#6E4555] text-white font-semibold rounded-md shadow hover:bg-white hover:text-[#6E4555] hover:border hover:border-[#6E4555]"
                         >
                             Login
                         </button>
@@ -170,21 +170,18 @@ const Login = () => {
                 </form>
 
                 {/* Google Sign-In Button */}
-                {/* <p className="mt-4 text-center text-sm text-gray-600">
-                    Or login with:
-                </p> */}
                 <button
                     onClick={handleGoogleSignIn}
-                    className="w-full py-2 px-4 bg-red-500 text-white font-semibold rounded-md shadow hover:bg-white hover:text-red-800 hover:border hover:border-red-800 mt-2"
+                    className="w-full py-2 px-4 bg-[#D282A6] text-white font-semibold rounded-md shadow hover:bg-white hover:text-[#6E4555] hover:border hover:border-[#6E4555] mt-2"
                 >
                     Sign In with Google
                 </button>
 
-                <p className="mt-4 text-center text-sm text-gray-600">
+                <p className="mt-4 text-center text-sm text-[#3A3238]">
                     Not registered?{' '}
                     <a
                         href="/signup"
-                        className="text-blue-600 hover:text-blue-800"
+                        className="text-[#6E4555] hover:text-[#D282A6]"
                     >
                         Create an account
                     </a>

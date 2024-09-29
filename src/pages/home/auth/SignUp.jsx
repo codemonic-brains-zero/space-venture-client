@@ -155,27 +155,27 @@ const SignUp = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col bg-gray-100 p-4">
-            <div className="max-w-3xl w-full bg-gray-200 p-8 rounded-lg shadow-md mx-auto">
+        <div className="min-h-screen flex flex-col bg-[#F7D7DC] p-4">
+            <div className="max-w-3xl w-full bg-[#E8B4BC] p-8 rounded-lg shadow-md mx-auto">
 
                 <div className="flex items-center mb-6">
                     <button
                         onClick={() => navigate("/login")}
-                        className="text-gray-600 hover:text-gray-900 mr-4"
+                        className="text-[#6E4555] hover:text-[#3A3238] mr-4"
                     >
                         <FaArrowLeft className="text-2xl" />
                     </button>
-                    <h1 className="text-2xl font-bold flex-grow text-center">
-                    {formData.userType ? `${formData.userType} Registration` : "Registration Form"}
-                </h1>
+                    <h1 className="text-2xl font-bold flex-grow text-center text-[#3A3238]">
+                        {formData.userType ? `${formData.userType} Registration` : "Registration Form"}
+                    </h1>
                 </div>
                 <div className="flex space-x-4 mb-6">
                     <button
                         type="button"
                         onClick={() => handleUserTypeChange("User")}
                         className={`w-full md:w-1/3 mb-2 md:mb-0 h-16 flex items-center justify-center rounded-lg text-lg font-bold ${formData.userType === "User"
-                            ? "bg-purple-500 text-white hover:border hover:border-purple-800 hover:text-purple-800 hover:bg-white"
-                            : "bg-purple-200 text-purple-800 hover:border hover:border-purple-800 hover:text-purple-800 hover:bg-white"
+                            ? "bg-[#6E4555] text-white hover:bg-[#3A3238]"
+                            : "bg-[#F7D7DC] text-[#3A3238] hover:bg-[#E8B4BC] hover:text-[#6E4555]"
                             }`}
                     >
                         User
@@ -184,8 +184,8 @@ const SignUp = () => {
                         type="button"
                         onClick={() => handleUserTypeChange("Residency Owner")}
                         className={`w-full md:w-1/3 mb-2 md:mb-0 h-16 flex items-center justify-center rounded-lg text-lg font-bold ${formData.userType === "Residency Owner"
-                            ? "bg-blue-500 text-white hover:border hover:border-blue-500 hover:text-blue-800 hover:bg-white"
-                            : "bg-blue-200 text-blue-800 hover:border hover:border-blue-500 hover:text-blue-800 hover:bg-white"
+                            ? "bg-[#6E4555] text-white hover:bg-[#3A3238]"
+                            : "bg-[#F7D7DC] text-[#3A3238] hover:bg-[#E8B4BC] hover:text-[#6E4555]"
                             }`}
                     >
                         Residency Owner
@@ -195,8 +195,8 @@ const SignUp = () => {
                             type="button"
                             onClick={() => handleUserTypeChange("Multi-Mess Manager")}
                             className={`w-full md:w-1/3 h-16 flex items-center justify-center rounded-lg text-lg font-bold ${formData.userType === "Multi-Mess Manager"
-                                ? "bg-green-500 text-white hover:border hover:border-green-800 hover:text-green-800 hover:bg-white"
-                                : "bg-green-200 text-green-800 hover:border hover:border-green-800 hover:text-green-800 hover:bg-white"
+                                ? "bg-[#6E4555] text-white hover:bg-[#3A3238]"
+                                : "bg-[#F7D7DC] text-[#3A3238] hover:bg-[#E8B4BC] hover:text-[#6E4555]"
                                 }`}
                         >
                             Multi-Mess Manager
@@ -211,7 +211,7 @@ const SignUp = () => {
                     {/* Full Name and Date of Birth */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="name" className="block text-sm font-medium text-[#3A3238]">
                                 Full Name
                             </label>
                             <input
@@ -220,12 +220,13 @@ const SignUp = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                placeholder="Enter your full name"
                                 required
                             />
                         </div>
                         <div>
-                            <label htmlFor="dob" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="dob" className="block text-sm font-medium text-[#3A3238]">
                                 Date of Birth
                             </label>
                             <input
@@ -234,7 +235,7 @@ const SignUp = () => {
                                 name="dob"
                                 value={formData.dob}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
                             />
                         </div>
                     </div>
@@ -242,7 +243,7 @@ const SignUp = () => {
                     {/* Email and Password */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="email" className="block text-sm font-medium text-[#3A3238]">
                                 Email
                             </label>
                             <input
@@ -251,12 +252,13 @@ const SignUp = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                placeholder="Enter your email"
                                 required
                             />
                         </div>
                         <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="password" className="block text-sm font-medium text-[#3A3238]">
                                 Password
                             </label>
                             <input
@@ -265,32 +267,17 @@ const SignUp = () => {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                placeholder="Enter a password"
                                 required
                             />
                         </div>
                     </div>
 
-                    {/* Phone Number */}
-                    <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                            Phone Number
-                        </label>
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            value={formData.phone}
-                            onChange={handleChange}
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
-                    </div>
-
-                    {/* Address and Organization */}
+                    {/* Address and Phone Number */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
-                            <label htmlFor="address" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="address" className="block text-sm font-medium text-[#3A3238]">
                                 Address
                             </label>
                             <input
@@ -299,63 +286,79 @@ const SignUp = () => {
                                 name="address"
                                 value={formData.address}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                placeholder="Enter your address"
                             />
                         </div>
                         <div>
-                            <label htmlFor="organization" className="block text-sm font-medium text-gray-700">
-                                Organization
+                            <label htmlFor="phone" className="block text-sm font-medium text-[#3A3238]">
+                                Phone Number
                             </label>
                             <input
-                                type="text"
-                                id="organization"
-                                name="organization"
-                                value={formData.organization}
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                value={formData.phone}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                placeholder="Enter your phone number"
+                                required
                             />
                         </div>
                     </div>
 
-                    {/* Profile Picture Upload */}
+                    {/* Organization */}
                     <div>
-                        <label htmlFor="profilePicture" className="block text-sm font-medium text-gray-700">
-                            Profile Picture
+                        <label htmlFor="organization" className="block text-sm font-medium text-[#3A3238]">
+                            Organization (Optional)
+                        </label>
+                        <input
+                            type="text"
+                            id="organization"
+                            name="organization"
+                            value={formData.organization}
+                            onChange={handleChange}
+                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                            placeholder="Enter your organization"
+                        />
+                    </div>
+
+                    {/* Profile Picture */}
+                    <div>
+                        <label htmlFor="profilePicture" className="block text-sm font-medium text-[#3A3238]">
+                            Profile Picture (Optional)
                         </label>
                         <input
                             type="file"
                             id="profilePicture"
                             name="profilePicture"
                             onChange={handleFileChange}
-                            className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                            className="mt-1 block w-full text-sm text-gray-500"
                         />
                     </div>
 
                     {/* Submit Button */}
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 text-white p-2 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    >
-                        Register
-                    </button>
+                    <div className="flex items-center justify-between">
+                        <button
+                            type="submit"
+                            className="w-full h-12 bg-[#3A3238] text-white font-bold rounded-lg hover:bg-[#6E4555] hover:text-[#F7D7DC]"
+                        >
+                            Register
+                        </button>
+                    </div>
+
+                    {/* Google Sign In Button */}
+                    <div className="text-center mt-4">
+                        <p className="text-[#3A3238]">Or sign in with Google</p>
+                        <button
+                            type="button"
+                            onClick={handleGoogleSignIn}
+                            className="mt-2 w-full h-12 bg-white text-[#3A3238] font-bold border border-[#3A3238] rounded-lg hover:bg-[#F7D7DC] hover:border-[#6E4555]"
+                        >
+                            Sign in with Google
+                        </button>
+                    </div>
                 </form>
-
-                {/* Google Sign-In Button */}
-                <div className="mt-6 text-center">
-                    <button
-                        type="button"
-                        onClick={handleGoogleSignIn}
-                        className="w-full bg-red-600 text-white p-2 rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
-                    >
-                        Sign In with Google
-                    </button>
-                </div>
-
-                {/* Login Link */}
-                <div className="mt-4 text-center">
-                    <p className="text-gray-600">Already have an account?</p>
-                    <a href="/login" className="text-blue-600 hover:underline">Login here</a>
-                </div>
             </div>
         </div>
     );

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Home from "./pages/home/Home";
 import Login from "./pages/home/auth/Login";
 import SignUp from "./pages/home/auth/SignUp";
-import ProtectedRoute from "./protected-routes/ProtectedRoute";
+import ProtectedRoute from "./private/ProtectedRoute";
 import UserDashboard from "./components/client/UserDashboard";
 import ResidencyOwnerDashboard from "./pages/recidencies/ResidencyOwnerDashboard";
 import MultiMessManagerDashboard from "./pages/mess/MultiMessManagerDashboard";
