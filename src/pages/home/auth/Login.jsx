@@ -43,9 +43,9 @@ const Login = () => {
             if (formData.userType === "User") {
                 navigate("/user-home");
             } else if (formData.userType === "Residency Owner") {
-                navigate("/residency-owner-dashboard");
+                navigate("/residency-owner-home");
             } else if (formData.userType === "Multi-Mess Manager") {
-                navigate("/multi-mess-manager-dashboard");
+                navigate("/multi-mess-manager-home");
             }
         } catch (error) {
             setError("Google Sign-In failed. Please try again.");
