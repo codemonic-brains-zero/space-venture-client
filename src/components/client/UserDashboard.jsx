@@ -17,7 +17,7 @@ const UserDashboard = () => {
         <img
           src={img1}
           alt="Dashboard Image 1"
-          className="rounded-lg shadow-lg max-w-full h-auto"
+          className="rounded-lg max-w-full h-auto"
         />
       </div>
     <Gallery/>

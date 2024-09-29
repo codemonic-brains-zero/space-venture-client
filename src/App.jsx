@@ -5,7 +5,6 @@ import Home from "./pages/home/Home";
 import Login from "./pages/home/auth/Login";
 import SignUp from "./pages/home/auth/SignUp";
 import ProtectedRoute from "./private/ProtectedRoute";
-import UserDashboard from "./components/client/UserDashboard";
 import ResidencyOwnerDashboard from "./pages/recidencies/ResidencyOwnerDashboard";
 import MultiMessManagerDashboard from "./pages/mess/MultiMessManagerDashboard";
 import { AuthProvider } from "./contexts/AuthContext";
@@ -15,10 +14,13 @@ import BookRooms from "./pages/client/BookRooms";
 import RentARoom from "./pages/client/RentARoom";
 import RoomMates from "./pages/client/RoomMates";
 import MessOutlets from "./pages/mess/MessOutlets";
+import UserDashboard from './components/client/UserDashboard';
+import MessDashboard from "./components/mess/MessDashboard";
 
 function App() {
   return (
-    <UserDashoard/>
+    // <UserDashboard/>
+    <MessDashboard/>
     );
   }
   
