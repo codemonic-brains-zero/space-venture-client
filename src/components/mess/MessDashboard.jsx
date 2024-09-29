@@ -18,7 +18,6 @@ const MessDashboard = () => {
   );
 };
 
-import img1 from '../../assets/MessDashboard/img1.png'
 
 
 export default MessDashboard;
