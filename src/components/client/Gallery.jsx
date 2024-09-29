@@ -27,7 +27,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Spacious room for rent</p>
+            <p className="text-center text-black mt-2">Spacious room for rent</p>
           </div>
 
           {/* Image 2 */}
@@ -38,7 +38,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Roommate-friendly apartment</p>
+            <p className="text-center text-black mt-2">Roommate-friendly apartment</p>
           </div>
 
           {/* Image 3 */}
@@ -49,7 +49,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Modern living space</p>
+            <p className="text-center text-black mt-2">Modern living space</p>
           </div>
 
           {/* Image 4 */}
@@ -60,7 +60,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Affordable rooms</p>
+            <p className="text-center text-black mt-2">Affordable rooms</p>
           </div>
 
           {/* Image 5 */}
@@ -71,7 +71,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Luxury room rentals</p>
+            <p className="text-center text-black mt-2">Luxury room rentals</p>
           </div>
 
           {/* Image 6 */}
@@ -82,7 +82,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Student accommodation</p>
+            <p className="text-center text-black mt-2">Student accommodation</p>
           </div>
 
           {/* Image 7 */}
@@ -93,7 +93,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Shared living spaces</p>
+            <p className="text-center text-black mt-2">Shared living spaces</p>
           </div>
 
           {/* Image 8 */}
@@ -104,7 +104,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Cozy rooms</p>
+            <p className="text-center text-black mt-2">Cozy rooms</p>
           </div>
 
           {/* Image 9 */}
@@ -115,7 +115,7 @@ const Gallery = () => {
               className="w-full h-64 object-cover"
               loading="lazy"
             />
-            <p className="text-center text-gray-600 mt-2">Fully-furnished rooms</p>
+            <p className="text-center text-black mt-2">Fully-furnished rooms</p>
           </div>
         </div>
       </div>
