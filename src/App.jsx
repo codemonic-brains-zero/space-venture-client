@@ -15,18 +15,29 @@ import MessOutlets from "./pages/mess/MessOutlets";
 import UserHome from "./pages/client/UserHome";
 import MultiMessManagerHome from "./pages/mess/MultiMessManagerHome";
 import ResidencyOwnerHome from "./pages/recidencies/ResidencyOwnerHome";
+import UserDashboard from "./components/client/UserDashboard";
+import MessDashboard from "./components/mess/MessDashboard";
+import ResidencyDashboard from './components/recidencies/ResidencyDashboard'
 
 function App() {
   return (
-  <AuthProvider>
+    <UserDashboard/>
+    // <MessDashboard/>
+    // <ResidencyDashboard/>
+);
+}
+
+export default App;
+
+{/* <AuthProvider>
       <Router>
         <Routes>
-          {/* Public Routes */}
+          {/* Public Routes}
             <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<Home />} />
 
-          {/* Protected Routes */}
+          {/* Protected Routes}
             <Route element={<Layout />}>
             <Route element={<ProtectedRoute allowedTypes={["User"]} />}>
               <Route path="/user-home" element={<UserHome />} />
@@ -46,12 +57,8 @@ function App() {
             </Route>
             </Route>
 
-          {/* Redirect all other paths to login if not matched */}
+          {/* Redirect all other paths to login if not matched}
             <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
-      </AuthProvider> 
-);
-}
-
-export default App;
+      </AuthProvider>  */}
