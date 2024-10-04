@@ -8,11 +8,11 @@ const ContactUs = () => {
     message: '',
   });
 
-  // Handle form submission
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Message Sent by ${formData.name}`);
-    // Add logic to send formData to backend or email
+    
   };
 
   // Handle input changes
@@ -68,12 +68,12 @@ const ContactUs = () => {
             onChange={handleChange}
             className="p-2 border border-gray-300 rounded-lg"
             placeholder="Enter your phone number"
-            pattern="[0-9]{10}"  // Only allows 10 digits
+            pattern="[0-9]{10}"  
             required
           />
         </div>
 
-        {/* Message Input */}
+    
         <div className="flex flex-col">
           <label htmlFor="message" className="mb-2 text-sm font-medium">Message</label>
           <textarea
@@ -88,7 +88,7 @@ const ContactUs = () => {
           />
         </div>
 
-        {/* Submit Button */}
+        
         <button
           type="submit"
           className="bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200"
