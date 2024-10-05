@@ -2,7 +2,7 @@
 import React from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import RecidencyNav from '../components/recidencies/RecidencyNav';
+import RecidencyNav from '../components/recidencies/ResidencyNav';
 import MessNav from '../components/mess/MessNav';
 // import UserHome from './client/UserHome';
 import UserNav from '../components/client/UserNav';
