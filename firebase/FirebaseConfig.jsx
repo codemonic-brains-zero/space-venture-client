@@ -1,10 +1,11 @@
 // src/firebase/FirebaseConfig.js
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth"; // Add GoogleAuthProvider import
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+// Ensure your environment variable is correctly set in .env file
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_SPACE_VENTURE_API_KEY, // Ensure environment variable is set correctly
+    apiKey: import.meta.env.VITE_SPACE_VENTURE_API_KEY,
     authDomain: "space-venture-ca032.firebaseapp.com",
     projectId: "space-venture-ca032",
     storageBucket: "space-venture-ca032.appspot.com",

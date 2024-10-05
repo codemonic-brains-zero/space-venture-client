@@ -1,7 +1,8 @@
+// src/components/Login.js
 import React, { useState } from "react";
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../contexts/AuthContext";
+import { auth, googleProvider } from "../../../../firebase/FirebaseConfig"; // Import auth and googleProvider
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -11,9 +12,6 @@ const Login = () => {
     });
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const { login } = useAuth(); // Context login for email/password sign-in
-    const auth = getAuth(); // Firebase Auth instance
-    const googleProvider = new GoogleAuthProvider(); // Google Auth provider
 
     // Function to handle changes in the form
     const handleChange = (e) => {
@@ -37,7 +35,7 @@ const Login = () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
-            console.log("User Info:", user);
+            console.log("Google User Info:", user);
 
             // Redirect based on userType
             if (formData.userType === "User") {
@@ -48,8 +46,8 @@ const Login = () => {
                 navigate("/multi-mess-manager-home");
             }
         } catch (error) {
-            setError("Google Sign-In failed. Please try again.");
-            console.error("Google Sign-In error:", error);
+            console.error("Google Sign-In error:", error.message);
+            setError(error.message || "Google Sign-In failed. Please try again.");
         }
     };
 
@@ -60,17 +58,19 @@ const Login = () => {
 
         try {
             // Use signInWithEmailAndPassword for email/password sign-in
-            await signInWithEmailAndPassword(auth, email, password);
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("Email/Password User Info:", userCredential.user);
 
             // Redirect based on userType
             if (formData.userType === "User") {
-                navigate("/user-dashboard");
+                navigate("/user-home");
             } else if (formData.userType === "Residency Owner") {
-                navigate("/residency-owner-dashboard");
+                navigate("/residency-owner-home");
             } else if (formData.userType === "Multi-Mess Manager") {
-                navigate("/multi-mess-manager-dashboard");
+                navigate("/multi-mess-manager-home");
             }
         } catch (err) {
+            console.error("Login error:", err); // Log the actual error object
             let errorMessage = "An error occurred during login.";
             if (err.code === "auth/user-not-found") {
                 errorMessage = "No user found with this email.";
@@ -78,9 +78,10 @@ const Login = () => {
                 errorMessage = "Invalid credentials. Please check your email and password.";
             } else if (err.code === "auth/invalid-email") {
                 errorMessage = "Invalid email format.";
+            } else if (err.message) {
+                errorMessage = err.message;  // Capture any other error messages
             }
-            setError(errorMessage);
-            console.error("Login error:", err);
+            setError(errorMessage);  // Set the error message in the state
         }
     };
 
@@ -171,24 +172,17 @@ const Login = () => {
                 </form>
 
                 {/* Google Sign-In Button */}
-                <button
-                    onClick={handleGoogleSignIn}
-                    className="w-full py-2 px-4 bg-[#D282A6] text-white font-semibold rounded-md shadow hover:bg-white hover:text-[#6E4555] hover:border hover:border-[#6E4555] mt-2"
-                >
-                    Sign In with Google
-                </button>
-
-                <p className="mt-4 text-center text-sm text-[#3A3238]">
-                    Not registered?{' '}
-                    <a
-                        href="/signup"
-                        className="text-[#6E4555] hover:text-[#D282A6]"
+                <div className="text-center mt-4">
+                    <button
+                        onClick={handleGoogleSignIn}
+                        className="w-full py-2 px-4 bg-white text-[#6E4555] font-semibold border border-[#6E4555] rounded-md shadow hover:bg-[#6E4555] hover:text-white"
                     >
-                        Create an account
-                    </a>
-                </p>
+                        Sign in with Google
+                    </button>
+                </div>
 
-                {error && <p className="text-red-500 text-center mt-4">{error}</p>}
+                {/* Error Message */}
+                {error && <p className="text-center text-red-600 mt-4">{error}</p>}
             </div>
         </div>
     );

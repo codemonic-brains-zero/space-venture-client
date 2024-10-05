@@ -14,15 +14,10 @@ import 'swiper/css/autoplay';  // Import the autoplay CSS
 
 // Import required modules
 import { Pagination, Autoplay } from 'swiper/modules';
-import UserNav from '../client/UserNav';
 
 const Hero = () => {
     return (
         <>
-        <div>
-            <UserNav></UserNav>
-            </div>
-
             <div className="flex h-screen bg-[#361a25]">
                 {/* Left div with information and login button */}
                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8">
