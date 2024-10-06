@@ -19,7 +19,7 @@ const dropdownLinks = [
 ];
 
 const bookingsDropdownLinks = [
-    { href: '/bookings/room', label: 'Room' },
+    { href: '/register-bookings', label: 'Room' },
     { href: '/bookings/mess', label: 'Mess' }
 ];
 

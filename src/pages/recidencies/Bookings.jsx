@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import UserNav from "../../components/client/UserNav";
 
 const RoomBookingForm = () => {
-  // Generate random room ID
   const [roomId] = useState(() => `ROOM-${Math.floor(1000 + Math.random() * 9000)}`);
 
   const [formData, setFormData] = useState({
@@ -42,29 +40,28 @@ const RoomBookingForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-light-pink">
-         <UserNav/>
+    <div className="min-h-screen flex items-center justify-center bg-[#f5e3e0] py-6">
       <form 
-        className="w-full max-w-lg p-8 rounded-lg" 
+        className="w-full max-w-lg p-8 rounded-lg bg-white shadow-lg " 
         onSubmit={handleSubmit}
       >
-        <h2 className="text-3xl font-bold mt-12 text-center text-3A3238">
+        <h2 className="text-3xl font-bold text-center text-[#3a3238] mb-6">
           Room Booking Form
         </h2>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mt-8">Room ID</label>
+          <label className="block text-sm font-bold text-[#3a3238]">Room ID</label>
           <input
             type="text"
             value={roomId}
             disabled
-            className="w-full p-3 border rounded bg-pink-200 cursor-not-allowed"
-            style={{ borderColor: '#E8B4BC' }}
+            className="w-full p-3 border rounded bg-[#e8b4bc] cursor-not-allowed"
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black" htmlFor="roomName">Room Name</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="roomName">Room Name</label>
           <input
             type="text"
             id="roomName"
@@ -73,12 +70,12 @@ const RoomBookingForm = () => {
             onChange={handleChange}
             required
             className="w-full p-3 border rounded"
-            style={{ borderColor: '#E8B4BC' }}
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black" htmlFor="ownerName">Owner Name</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="ownerName">Owner Name</label>
           <input
             type="text"
             id="ownerName"
@@ -87,12 +84,12 @@ const RoomBookingForm = () => {
             onChange={handleChange}
             required
             className="w-full p-3 border rounded"
-            style={{ borderColor: '#E8B4BC' }}
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black" htmlFor="email">Email</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
@@ -101,12 +98,12 @@ const RoomBookingForm = () => {
             onChange={handleChange}
             required
             className="w-full p-3 border rounded"
-            style={{ borderColor: '#E8B4BC' }}
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black" htmlFor="phone">Phone</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="phone">Phone</label>
           <input
             type="tel"
             id="phone"
@@ -115,12 +112,12 @@ const RoomBookingForm = () => {
             onChange={handleChange}
             required
             className="w-full p-3 border rounded"
-            style={{ borderColor: '#E8B4BC' }}
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black"htmlFor="address">Address</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="address">Address</label>
           <textarea
             id="address"
             name="address"
@@ -128,12 +125,12 @@ const RoomBookingForm = () => {
             onChange={handleChange}
             required
             className="w-full p-3 border rounded"
-            style={{ borderColor: '#E8B4BC' }}
+            style={{ borderColor: '#e8b4bc' }}
           ></textarea>
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black" htmlFor="rentAmount">Rent Amount</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="rentAmount">Rent Amount</label>
           <input
             type="number"
             id="rentAmount"
@@ -142,33 +139,33 @@ const RoomBookingForm = () => {
             onChange={handleChange}
             required
             className="w-full p-3 border rounded"
-            style={{ borderColor: '#E8B4BC' }}
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         {/* Image Upload */}
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-black" htmlFor="image">Upload Room Image</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="image">Upload Room Image</label>
           <input
             type="file"
             id="image"
             name="image"
             accept="image/*"
             onChange={handleImageChange}
-            className="w-full p-3 border rounded bg-gray-200"
-            style={{ borderColor: '#E8B4BC' }}
+            className="w-full p-3 border rounded bg-[#f5e3e0]"
+            style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         {/* Preview the uploaded image */}
         {previewImage && (
           <div className="mb-4">
-            <label className="block text-sm font-bold mb-2 text-black">Image Preview</label>
+            <label className="block text-sm font-bold mb-2 text-[#3a3238]">Image Preview</label>
             <img
               src={previewImage}
               alt="Room Preview"
               className="w-full h-40 object-cover rounded border"
-              style={{ borderColor: '#E8B4BC' }}
+              style={{ borderColor: '#e8b4bc' }}
             />
           </div>
         )}
@@ -176,7 +173,7 @@ const RoomBookingForm = () => {
         <button
           type="submit"
           className="w-full p-3 rounded text-white font-bold"
-          style={{ backgroundColor: '#6E4555' }} // Button color
+          style={{ backgroundColor: '#6e4555' }}
         >
           Submit
         </button>

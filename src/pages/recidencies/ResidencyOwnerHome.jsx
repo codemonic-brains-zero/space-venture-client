@@ -9,7 +9,10 @@ const ResidencyOwnerHome = () => {
     return (
         <>
             <ResidencyDashboard />
-            <Footer/>
+            <Gallery />
+            <Services />
+            <About />
+            <Footer />
         </>
     )
 }

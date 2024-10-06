@@ -6,6 +6,7 @@ import RecidencyNav from '../components/recidencies/ResidencyNav';
 import MessNav from '../components/mess/MessNav';
 // import UserHome from './client/UserHome';
 import UserNav from '../components/client/UserNav';
+import Footer from '../components/Footer';
 
 const Layout = () => {
     const { currentUser, userType } = useAuth(); // Get the current user and user type from the AuthContext
@@ -25,6 +26,7 @@ const Layout = () => {
             {/* This is where the child routes will be rendered */}
             <main>
                 <Outlet />
+                <Footer/>
             </main>
         </>
     );
