@@ -1,8 +1,5 @@
 import React from 'react';
 import img1 from '../../assets/MessDashboard/img1.png'
-import Services from '../mess/Services';
-import About from '../mess/About';
-import Gallery from '../mess/Gallery';
 import UserNav from '../client/UserNav';
 
 const MessDashboard = () => {
@@ -19,9 +16,6 @@ const MessDashboard = () => {
         />
       </div>
     </div>
-    <Gallery/>
-    <Services/>
-    <About/>
     </>
   );
 };
