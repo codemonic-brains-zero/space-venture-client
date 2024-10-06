@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/home/auth/Login";
 import SignUp from "./pages/home/auth/SignUp";
@@ -15,43 +15,47 @@ import MessOutlets from "./pages/mess/MessOutlets";
 import UserHome from "./pages/client/UserHome";
 import MultiMessManagerHome from "./pages/mess/MultiMessManagerHome";
 import ResidencyOwnerHome from "./pages/recidencies/ResidencyOwnerHome";
+import RegisterMess from "./pages/mess/RegisterMess";
 
 function App() {
   return (
- <AuthProvider>
-      <Router>
-        <Routes>
-          {/* Public Routes*/}
-            <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-            <Route path="/" element={<Home />} />
+    <>
 
-          {/* Protected Routes*/}
-            <Route element={<Layout />}>
-            <Route element={<ProtectedRoute allowedTypes={["User"]} />}>
-              <Route path="/user-home" element={<UserHome />} />
-              <Route path="/book-rooms" element={<BookRooms />} />
-              <Route path="/rent-a-room" element={<RentARoom />} />
-              <Route path="/room-mates" element={<RoomMates />} />
-                <Route path="/mess-outlets" element={<MessOutlets />} />
-            </Route>
+<AuthProvider>
+  <Router>
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/" element={<Home />} />
 
-            <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>
-              <Route path="/residency-owner-home" element={<ResidencyOwnerHome />} />
-              <Route path="/register-room" element={<RegisterRoom />} />
-              </Route>
+      {/* Protected Routes */}
+      <Route element={<Layout />}>
+        <Route element={<ProtectedRoute allowedTypes={["User"]} />}>
+          <Route path="/user-home" element={<UserHome />} />
+          <Route path="/book-rooms" element={<BookRooms />} />
+          <Route path="/rent-a-room" element={<RentARoom />} />
+          <Route path="/room-mates" element={<RoomMates />} />
+          <Route path="/mess-outlets" element={<MessOutlets />} />
+        </Route>
 
-              <Route element={<ProtectedRoute allowedTypes={["Multi-Mess Manager"]} />}>
-              <Route path="/multi-mess-manager-home" element={<MultiMessManagerHome />} />
-              <Route path="/mess-outlets" element={<MessOutlets />} />
-            </Route>
-            </Route>
+        <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>
+          <Route path="/residency-owner-home" element={<ResidencyOwnerHome />} />
+          <Route path="/register-room" element={<RegisterRoom />} />
+        </Route>
 
-          {/* Redirect all other paths to login if not matched*/}
-            <Route path="*" element={<Navigate to="/login" replace />} />
-        </Routes>
-      </Router>
-      </AuthProvider>  
+        <Route element={<ProtectedRoute allowedTypes={["Multi-Mess Manager"]} />}>
+          <Route path="/multi-mess-manager-home" element={<MultiMessManagerHome />} />
+          <Route path="/mess-outlets" element={<MessOutlets />} />
+        </Route>
+      </Route>
+
+      {/* Redirect all other paths to login if not matched */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
+  </Router>
+</AuthProvider>
+  </>
     );
   }
   
