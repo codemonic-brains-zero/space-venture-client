@@ -17,12 +17,13 @@ const BookRooms = ({ room = {}, onClose }) => {
   };
 
   return (
+    <>
     <div className="fixed inset-0 bg-light-pink flex flex-col z-50">
-      <UserNav/>
-      <div className="flex flex-grow items-center justify-center overflow-y-auto">
+    <UserNav/>
+      <div className="flex flex-grow items-center justify-center overflow-y-auto mt-12">
         <div className="bg-f5e3e0 p-8 rounded-lg w-11/12 md:w-1/2 lg:w-1/3">
-          <h2 className="text-d282a6 text-2xl mt-7 font-bold mb-4 items-center">
-            Book {room.location} - {room.type}
+          <h2 className="text-d282a6 text-2xl mt-7 font-bold mb-4 align-middle">
+            Book A Room
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
@@ -102,6 +103,7 @@ const BookRooms = ({ room = {}, onClose }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

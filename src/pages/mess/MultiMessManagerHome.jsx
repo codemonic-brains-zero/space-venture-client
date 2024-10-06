@@ -9,9 +9,6 @@ const MultiMessManagerHome = () => {
   return (
     <>
       <MessDashboard />
-      <Gallery />
-      <Services />
-      <About />
       <Footer />
     </>
   )

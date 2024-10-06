@@ -10,9 +10,6 @@ const UserHome = () => {
         <>
             {/* Navbar */}
             <UserDashboard />
-            <Gallery />
-            <Services />
-            <About />
             <Footer/>
         </>
     )
