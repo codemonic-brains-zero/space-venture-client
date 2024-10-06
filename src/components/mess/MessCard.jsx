@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Importing Link from react-router-dom
-import MessNav from './MessNav'; // Navigation component
+
 
 const MessCard = ({ name, image, description, price, deliveryTime, rating }) => {
   return (
     <>
-      {/* Navbar */}
-      <div>
-        <MessNav />
-      </div>
+      
+     
 
       {/* Mess Card */}
       <div className="flex bg-[#efe1de] rounded-lg shadow-md overflow-hidden mb-6">

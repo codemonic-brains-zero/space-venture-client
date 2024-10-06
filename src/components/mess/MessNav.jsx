@@ -5,7 +5,8 @@ import { GrClose } from "react-icons/gr";
 import { RiArrowDownSFill, RiArrowRightSFill } from "react-icons/ri";
 import logo from '../../assets/common/logo.png'
 
-const links = [
+const
+ links = [
     { href: '/', label: 'Home' },
     { href: '#', label: 'Bookings', hasDropdown: true }, // Updated Bookings link
     { href: '/about', label: 'Add Your Rooms' },

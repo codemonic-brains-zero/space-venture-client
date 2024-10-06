@@ -1,4 +1,4 @@
-// src/pages/client/MessCardPage.js
+
 
 import React from 'react';
 import MessCard from '../../components/mess/MessCard';
@@ -114,12 +114,32 @@ const messData = [
     rating: 4.9,
     reviews: 60,
   },
+  {
+    id: 11,
+    name: 'Rainbow Mess',
+    image: image10,
+    description: `Premium meals with gourmet ingredients for a luxurious dining experience. Indulge in our chef-crafted dishes that bring fine dining to your doorstep.`,
+    price: '₹300/meal',
+    deliveryTime: '35-45 min',
+    rating: 4.9,
+    reviews: 60,
+  },
+  // {
+  //   id: 12,
+  //   name: 'Tiffin Wala ',
+  //   image: image10,
+  //   description: `Premium meals with gourmet ingredients for a luxurious dining experience. Indulge in our chef-crafted dishes that bring fine dining to your doorstep.`,
+  //   price: '₹300/meal',
+  //   deliveryTime: '35-45 min',
+  //   rating: 4.9,
+  //   reviews: 60,
+  // },
 ];
 
 const MessOutlets = () => {
   return (
     <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-3xl font-bold text-center mb-10">Mess Outlets</h1>
+      <h1 className="text-3xl font-bold text-center mb-10 mt-12" >Mess Outlets</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {messData.map((mess) => (
           <MessCard
