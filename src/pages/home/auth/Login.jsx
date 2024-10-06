@@ -169,6 +169,7 @@ const Login = () => {
                             Login
                         </button>
                     </div>
+
                 </form>
 
                 {/* Google Sign-In Button */}
@@ -180,7 +181,11 @@ const Login = () => {
                         Sign in with Google
                     </button>
                 </div>
-
+                <div className="text-center mt-4">
+                    <a href="/signup"
+                        className="w-full py-2 px-4 bg-white text-[#6E4555] font-semibold border border-[#6E4555] rounded-md shadow hover:bg-[#6E4555] hover:text-white"
+                    >Sign Up</a>
+                </div>
                 {/* Error Message */}
                 {error && <p className="text-center text-red-600 mt-4">{error}</p>}
             </div>
