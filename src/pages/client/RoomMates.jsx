@@ -14,6 +14,7 @@ const RoomMates = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filter, setFilter] = useState('');
     const [sortAge, setSortAge] = useState('');
+    const [ageRange, setAgeRange] = useState('');
     const [expanded, setExpanded] = useState(null);
 
     const roomsData = [
@@ -194,18 +195,29 @@ const RoomMates = () => {
     ];
 
     const filteredRoommates = roommates
-        .filter(roommate =>
-            roommate.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-            (filter === '' || roommate.gender === filter)
-        )
-        .sort((a, b) => {
-            if (sortAge === 'asc') {
-                return a.age - b.age;
-            } else if (sortAge === 'desc') {
-                return b.age - a.age;
-            }
-            return 0;
-        });
+    .filter(roommate =>
+        roommate.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (filter === '' || roommate.gender === filter)
+    )
+    .sort((a, b) => {
+        if (sortAge === 'asc') {
+            return a.age - b.age;
+        } else if (sortAge === 'desc') {
+            return b.age - a.age;
+        }
+        return 0;
+    })
+    .filter(roommate => {
+        if (ageRange === '18-25') {
+            return roommate.age >= 18 && roommate.age <= 25;
+        } else if (ageRange === '26-35') {
+            return roommate.age >= 26 && roommate.age <= 35;
+        } else if (ageRange === '36+') {
+            return roommate.age >= 36;
+        }
+        return true; // If no age range is selected, return all roommates
+    });
+
 
     return (
         <div className="bg-white min-h-screen flex flex-col h-full w-full">
@@ -236,6 +248,16 @@ const RoomMates = () => {
                     <option value="">Sort by Age</option>
                     <option value="asc">Ascending</option>
                     <option value="desc">Descending</option>
+                </select>
+                <select
+                    className="p-2 border border-gray-300 bg-[#E8B4BC] rounded-md focus:outline-none focus:ring-2 focus:ring-[#F5E3E0] ml-4"
+                    value={ageRange}  // Added dropdown for age range
+                    onChange={e => setAgeRange(e.target.value)}
+                >
+                    <option value="">Select Age Range</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36+">36+</option>
                 </select>
             </div>
 
