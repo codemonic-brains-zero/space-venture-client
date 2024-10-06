@@ -1,13 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importing Link from react-router-dom
-
+import { Link } from 'react-router-dom';
+import ExploreNow from './ExploreNow';
+import ContactUs from "./ContactUs";
 
 const MessCard = ({ name, image, description, price, deliveryTime, rating }) => {
   return (
     <>
-      
-     
-
       {/* Mess Card */}
       <div className="flex bg-[#efe1de] rounded-lg shadow-md overflow-hidden mb-6">
         {/* Image Section */}
@@ -40,14 +38,14 @@ const MessCard = ({ name, image, description, price, deliveryTime, rating }) => 
 
           {/* Buttons Section */}
           <div className="mt-6 flex space-x-4">
-            {/* Contact Now Button */}
-            <Link to='/ContactUs'>
+            {/* Contact Now Button (React internal navigation) */}
+            <Link to="/ContactUs">
               <button className="bg-[#5b3846] text-white px-4 py-2 rounded-md hover:bg-white hover:text-black">
                 Contact Now
               </button>
             </Link>
 
-            {/* Explore More Button */}
+            
             <Link to="/ExploreNow">
               <button className="bg-pink-500 text-black px-4 py-2 rounded-md hover:bg-black hover:text-white">
                 Explore More
