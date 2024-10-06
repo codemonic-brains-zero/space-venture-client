@@ -52,11 +52,11 @@ const RecidencyNav = () => {
                                 {!isMenuOpen ? <FaBarsStaggered /> : <GrClose />}
                             </button>
                         </div>
-                        <div className="flex-shrink-0 h-8 w-16">
-                            <a href="/" className="text-white text-xl font-bold">
-                                <img src={logo} alt="logo" />
-                            </a>
-                        </div>
+                        <div className="flex-shrink-0 h-24 w-32"> {/* Increased size here */}
+                                <a href="/" className="text-white text-xl font-bold">
+                                    <img src={logo} alt="logo" className="h-full w-full object-contain" /> {/* Adjusted the img size */}
+                                </a>
+                            </div>
                     </div>
 
                     {/* Main Links for Desktop */}
