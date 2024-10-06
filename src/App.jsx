@@ -16,6 +16,7 @@ import UserHome from "./pages/client/UserHome";
 import MultiMessManagerHome from "./pages/mess/MultiMessManagerHome";
 import ResidencyOwnerHome from "./pages/recidencies/ResidencyOwnerHome";
 import RegisterMess from "./pages/mess/RegisterMess";
+import Bookings from "./pages/recidencies/Bookings"
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>
           <Route path="/residency-owner-home" element={<ResidencyOwnerHome />} />
           <Route path="/register-room" element={<RegisterRoom />} />
+          <Route path="/register-bookings" element={<Bookings />} />
         </Route>
 
         <Route element={<ProtectedRoute allowedTypes={["Multi-Mess Manager"]} />}>
