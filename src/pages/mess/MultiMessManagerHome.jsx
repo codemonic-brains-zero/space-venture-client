@@ -12,7 +12,6 @@ const MultiMessManagerHome = () => {
       <Gallery/>
     <Services/>
     <About/>
-      <Footer />
     </>
   )
 }

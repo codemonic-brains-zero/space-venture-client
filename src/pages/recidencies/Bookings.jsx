@@ -40,9 +40,9 @@ const RoomBookingForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f5e3e0] py-6">
-      <form 
-        className="w-full max-w-lg p-8 rounded-lg bg-white shadow-lg " 
+    <div className="min-h-screen flex items-center justify-center bg-[#F7D7DC] py-6">
+      <form
+        className="max-w-3xl w-full bg-[#E8B4BC] p-8 rounded-lg shadow-md mx-auto"
         onSubmit={handleSubmit}
       >
         <h2 className="text-3xl font-bold text-center text-[#3a3238] mb-6">
@@ -55,13 +55,13 @@ const RoomBookingForm = () => {
             type="text"
             value={roomId}
             disabled
-            className="w-full p-3 border rounded bg-[#e8b4bc] cursor-not-allowed"
+            className="w-full p-3 border rounded bg-[#F7D7DC] cursor-not-allowed border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="roomName">Room Name</label>
+          <label className="block text-sm font-bold mb-2 text-[#3a3238]" htmlFor="roomName">Full Name</label>
           <input
             type="text"
             id="roomName"
@@ -69,8 +69,9 @@ const RoomBookingForm = () => {
             value={formData.roomName}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
+            placeholder='Enter Your Name'
           />
         </div>
 
@@ -83,8 +84,9 @@ const RoomBookingForm = () => {
             value={formData.ownerName}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
+            placeholder='Enter Owner Name'
           />
         </div>
 
@@ -97,8 +99,9 @@ const RoomBookingForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
+            placeholder='Enter Email'
           />
         </div>
 
@@ -111,8 +114,9 @@ const RoomBookingForm = () => {
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
+            placeholder='Enter Phone number.'
           />
         </div>
 
@@ -124,8 +128,9 @@ const RoomBookingForm = () => {
             value={formData.address}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
+            placeholder='Enter Address'
           ></textarea>
         </div>
 
@@ -138,8 +143,9 @@ const RoomBookingForm = () => {
             value={formData.rentAmount}
             onChange={handleChange}
             required
-            className="w-full p-3 border rounded"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
+            placeholder='Enter Rent Amount'
           />
         </div>
 
@@ -152,7 +158,7 @@ const RoomBookingForm = () => {
             name="image"
             accept="image/*"
             onChange={handleImageChange}
-            className="w-full p-3 border rounded bg-[#f5e3e0]"
+            className="w-full p-3 border rounded bg-[#f5e3e0] border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
           />
         </div>
@@ -164,7 +170,7 @@ const RoomBookingForm = () => {
             <img
               src={previewImage}
               alt="Room Preview"
-              className="w-full h-40 object-cover rounded border"
+              className="w-full h-40 object-cover rounded border border-gray-300"
               style={{ borderColor: '#e8b4bc' }}
             />
           </div>
@@ -172,8 +178,7 @@ const RoomBookingForm = () => {
 
         <button
           type="submit"
-          className="w-full p-3 rounded text-white font-bold"
-          style={{ backgroundColor: '#6e4555' }}
+          className="w-full h-12 bg-[#6E4555] text-white font-bold rounded-lg hover:bg-[#3A3238] hover:text-[#F7D7DC]"
         >
           Submit
         </button>
