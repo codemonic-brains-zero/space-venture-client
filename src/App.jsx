@@ -17,6 +17,8 @@ import MultiMessManagerHome from "./pages/mess/MultiMessManagerHome";
 import ResidencyOwnerHome from "./pages/recidencies/ResidencyOwnerHome";
 import RegisterMess from "./pages/mess/RegisterMess";
 import Bookings from "./pages/recidencies/Bookings"
+import ExploreNow from "./components/mess/ExploreNow";
+import ContactUs from "./components/mess/ContactUs";
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
           <Route path="/rent-a-room" element={<RentARoom />} />
           <Route path="/room-mates" element={<RoomMates />} />
           <Route path="/mess-outlets" element={<MessOutlets />} />
+                <Route path="/explorenow" element={<ExploreNow />} />
+                <Route path="/contactus" element={<ContactUs />} />
         </Route>
 
         <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>

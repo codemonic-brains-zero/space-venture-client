@@ -124,16 +124,16 @@ const messData = [
     rating: 4.9,
     reviews: 60,
   },
-  // {
-  //   id: 12,
-  //   name: 'Tiffin Wala ',
-  //   image: image10,
-  //   description: `Premium meals with gourmet ingredients for a luxurious dining experience. Indulge in our chef-crafted dishes that bring fine dining to your doorstep.`,
-  //   price: '₹300/meal',
-  //   deliveryTime: '35-45 min',
-  //   rating: 4.9,
-  //   reviews: 60,
-  // },
+  {
+    id: 12,
+    name: 'Tiffin Wala ',
+    image: image10,
+    description: `Premium meals with gourmet ingredients for a luxurious dining experience. Indulge in our chef-crafted dishes that bring fine dining to your doorstep.`,
+    price: '₹300/meal',
+    deliveryTime: '35-45 min',
+    rating: 4.9,
+    reviews: 60,
+  },
 ];
 
 const MessOutlets = () => {
