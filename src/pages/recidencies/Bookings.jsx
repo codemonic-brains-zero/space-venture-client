@@ -158,7 +158,7 @@ const RoomBookingForm = () => {
             name="image"
             accept="image/*"
             onChange={handleImageChange}
-            className="w-full p-3 border rounded bg-[#f5e3e0] border-gray-300"
+            className="w-full p-3 border rounded border-gray-300"
             style={{ borderColor: '#e8b4bc' }}
           />
         </div>

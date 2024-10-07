@@ -11,7 +11,8 @@ const links = [
     { href: '/mess-outlets', label: 'Mess' },
     { href: '#', label: 'Track', hasDropdown: true },
     { href: '/rent-a-room', label: 'Rent A Room' },
-    { href: '/room-mates', label: 'Find A Roommate' }
+    { href: '/room-mates', label: 'Find A Roommate' },
+    { href: '/add-roommate', label: 'Add Roommate' }
 ];
 
 const dropdownLinks = [
