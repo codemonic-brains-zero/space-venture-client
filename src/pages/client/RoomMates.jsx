@@ -220,7 +220,7 @@ const RoomMates = () => {
 
 
     return (
-        <div className="bg-white min-h-screen flex flex-col h-full w-full">
+        <div className="bg-pink-100 min-h-screen flex flex-col h-full w-full">
             <h1 className="text-dark-grayish-brown text-4xl font-bold text-center mt-6">Find Your Roommate</h1>
 
             <div className="flex justify-center mb-6 mt-4">
@@ -261,9 +261,9 @@ const RoomMates = () => {
                 </select>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-lg ml-4 mr-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 rounded-lg ml-4 mr-4 mb-10">
                 {filteredRoommates.map(roommate => (
-                    <div key={roommate.id} className="bg-[#F5E3E0] rounded-xl shadow-lg p-4 flex flex-col items-center">
+                    <div key={roommate.id} className="bg-[#F5E3E0] rounded-xl p-4 flex flex-col items-center">
                         <img
                             src={roommate.roomDetails.image}
                             alt={roommate.name}

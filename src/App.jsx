@@ -19,6 +19,7 @@ import RegisterMess from "./pages/mess/RegisterMess";
 import Bookings from "./pages/recidencies/Bookings"
 import ExploreNow from "./components/mess/ExploreNow";
 import ContactUs from "./components/mess/ContactUs";
+import AddRoommateForm from "./pages/client/AddRoomate";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/user-home" element={<UserHome />} />
           <Route path="/book-rooms" element={<BookRooms />} />
           <Route path="/rent-a-room" element={<RentARoom />} />
+          <Route path="/add-roommate" element={<AddRoommateForm />} />
           <Route path="/room-mates" element={<RoomMates />} />
           <Route path="/mess-outlets" element={<MessOutlets />} />
                 <Route path="/explorenow" element={<ExploreNow />} />

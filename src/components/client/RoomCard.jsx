@@ -25,13 +25,13 @@ const RoomCard = ({ image, location, type, desc, vacancy, price }) => {
         <p className="text-dark-grayish-brown font-bold mb-4">Price: ₹{price}/month</p>
         <div className="flex space-x-4 mt-10">
           <button
-            className="bg-[#6E4555] text-light-pink px-4 py-2 rounded-md w-full"
+            className="bg-[#6E4555] text-white px-4 py-2 rounded-md hover:bg-[#3A3238] hover:text-[#F7D7DC] w-full"
             onClick={handleBookNow} // Navigate to the booking page
           >
             Book Now
           </button>
           <button
-            className="bg-[#6E4555] text-light-pink px-4 py-2 rounded-md w-full flex items-center justify-center"
+            className="bg-[#6E4555] text-white px-4 py-2 rounded-md hover:bg-[#3A3238] hover:text-[#F7D7DC] w-full flex items-center justify-center"
             onClick={() => window.location.href = 'tel:7620722964'}
           >
             Contact

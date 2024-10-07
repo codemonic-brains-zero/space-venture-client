@@ -118,10 +118,10 @@ const RentARoom = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen flex flex-col h-full w-full">
+        <div className="bg-pink-100 min-h-screen flex flex-col h-full w-full">
             <header className="w-full relative">
                 {/* Search functionality */}
-                <div className="absolute inset-x-0 bottom-0 mx-auto my-auto p-6 rounded-lg shadow-lg w-10/12 mt-12 bg-light-pink">
+                <div className="absolute inset-x-0 bottom-0 mx-auto my-auto p-6 rounded-lg w-10/12 mt-12 bg-light-pink">
                     <div className="flex flex-wrap justify-between space-y-4 sm:space-y-0">
                         <div className="w-full sm:w-auto flex items-center space-x-2">
                             <label className="text-black">Location</label>
@@ -146,7 +146,7 @@ const RentARoom = () => {
                                 <option value="3BHK">3BHK</option>
                             </select>
                         </div>
-                        <button className="bg-[#D282A6] text-white px-6 py-2 rounded-md" onClick={handleSearch}>
+                        <button className="bg-[#6E4555] text-white px-6 py-2 rounded-md hover:bg-[#3A3238] hover:text-[#F7D7DC]" onClick={handleSearch}>
                             Search
                         </button>
                     </div>
@@ -155,7 +155,7 @@ const RentARoom = () => {
                 {/* Title and subtitle */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex justify-center items-center mb-8">
                     <div className="text-center">
-                        <h1 className="text-dark-grayish-brown text-4xl font-bold">Rent Your Perfect Room</h1>
+                        <h1 className="text-dark-grayish-brown text-4xl font-bold mt-6">Rent Your Perfect Room</h1>
                         <p className="text-dark-grayish-brown font-medium mt-5 mb-8">
                             Discover and book the ideal room that suits your needs within minutes.
                         </p>
