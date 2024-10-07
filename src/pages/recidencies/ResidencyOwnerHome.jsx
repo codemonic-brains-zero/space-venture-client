@@ -12,7 +12,6 @@ const ResidencyOwnerHome = () => {
             <Gallery />
             <Services />
             <About />
-            <Footer />
         </>
     )
 }

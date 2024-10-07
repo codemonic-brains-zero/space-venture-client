@@ -18,9 +18,6 @@ const UserDashboard = () => {
         />
       </div>
       {/* Other Components */}
-      <Gallery />
-      <Services />
-      <About />
     </div>
   );
 };
