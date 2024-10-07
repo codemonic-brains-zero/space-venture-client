@@ -70,7 +70,7 @@ const ExploreNow = () => {
           alt="Explore Mess Menu" 
           className="w-full h-64 object-cover rounded-lg shadow-md"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center selection:mt-20 items-center">
           <h1 className="text-4xl text-white font-bold">Explore Mess Menu</h1>
         </div>
       </div>
