@@ -1,54 +1,38 @@
 import React, { useState } from 'react';
+import image1 from "../../assets/Messimages/banner1.jpg";
+import rice1 from "../../assets/Messimages/Eggrice.jpg";
+import rice2 from "../../assets/Messimages/FriedRice.jpg";
+import rice3 from "../../assets/Messimages/JeeraRice.jpg";
 
 const ExploreNow = () => {
-  
+  const [menuType, setMenuType] = useState(null);
   const [cart, setCart] = useState([]);
-  
-  
+
   const menuData = {
     veg: {
       rice: [
-        { name: 'Plain Rice', price: 50, image: '/images/plain_rice.jpg' },
-        { name: 'Fried Rice', price: 70, image: '/images/fried_rice.jpg' }
+        { name: 'Plain Rice', price: 50, image: '/images/plain_rice.jpg', description: 'Simple steamed rice.', rating: 4.2 },
+        { name: 'Fried Rice', price: 70, image: '/Messimages/FriedRice.jpg', description: 'Tasty fried rice with vegetables.', rating: 4.5 },
+        { name: 'Fried Rice', price: 70, image: '/Messimages/JeeraRice.jpg', description: 'Tasty fried rice with vegetables.', rating: 4.5 }
+
       ],
       sabji: [
-        { name: 'Paneer Butter Masala', price: 120, image: '/images/paneer_butter.jpg' },
-        { name: 'Aloo Gobi', price: 80, image: '/images/aloo_gobi.jpg' }
+        { name: 'Paneer Butter Masala', price: 120, image: '/images/paneer_butter.jpg', description: 'Creamy paneer dish.', rating: 4.7 },
+        { name: 'Aloo Gobi', price: 80, image: '/images/aloo_gobi.jpg', description: 'Potato and cauliflower curry.', rating: 4.1 }
       ],
-      dal: [
-        { name: 'Dal Tadka', price: 60, image: '/images/dal_tadka.jpg' },
-        { name: 'Dal Fry', price: 70, image: '/images/dal_fry.jpg' }
-      ],
-      roti: [
-        { name: 'Chapati', price: 10, image: '/images/chapati.jpg' },
-        { name: 'Butter Naan', price: 20, image: '/images/butter_naan.jpg' }
-      ],
-      sweets: [
-        { name: 'Gulab Jamun', price: 50, image: '/images/gulab_jamun.jpg' },
-        { name: 'Rasgulla', price: 40, image: '/images/rasgulla.jpg' }
-      ],
+      // Add other categories...
     },
     nonVeg: {
       rice: [
-        { name: 'Chicken Biryani', price: 150, image: '/images/chicken_biryani.jpg' },
-        { name: 'Mutton Biryani', price: 200, image: '/images/mutton_biryani.jpg' }
+        { name: 'Chicken Biryani', price: 150, image: '/images/chicken_biryani.jpg', description: 'Delicious chicken biryani.', rating: 4.8 },
+        { name: 'Mutton Biryani', price: 200, image: '/images/mutton_biryani.jpg', description: 'Rich mutton biryani.', rating: 4.9 }
       ],
       sabji: [
-        { name: 'Chicken Curry', price: 180, image: '/images/chicken_curry.jpg' },
-        { name: 'Mutton Curry', price: 220, image: '/images/mutton_curry.jpg' }
+        { name: 'Chicken Curry', price: 180, image: '/images/chicken_curry.jpg', description: 'Spicy chicken curry.', rating: 4.6 },
+        { name: 'Mutton Curry', price: 220, image: '/images/mutton_curry.jpg', description: 'Savory mutton curry.', rating: 4.7 }
       ],
-      dal: [
-        { name: 'Dal Gosht', price: 100, image: '/images/dal_gosht.jpg' }
-      ],
-      roti: [
-        { name: 'Tandoori Roti', price: 15, image: '/images/tandoori_roti.jpg' },
-        { name: 'Butter Naan', price: 20, image: '/images/butter_naan.jpg' }
-      ],
-      sweets: [
-        { name: 'Phirni', price: 60, image: '/images/phirni.jpg' },
-        { name: 'Kheer', price: 50, image: '/images/kheer.jpg' }
-      ],
-    },
+      // Add other categories...
+    }
   };
 
   // Function to add items to cart
@@ -56,102 +40,150 @@ const ExploreNow = () => {
     setCart([...cart, item]);
   };
 
-  // Calculate total price
-  const getTotalPrice = () => {
-    return cart.reduce((total, item) => total + item.price, 0);
+  const renderMenuItems = (categoryData) => {
+    return Object.keys(categoryData).map((type) => (
+      <div key={type} className="mb-8">
+        <h3 className="text-xl font-semibold capitalize mb-4">{type}</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {categoryData[type].map((menuItem, idx) => (
+            <MenuItem key={idx} item={menuItem} addToCart={addToCart} />
+          ))}
+        </div>
+      </div>
+    ));
   };
 
   return (
     <div className="container mx-auto p-4">
       {/* Banner Section */}
       <div className="relative mb-8">
-        <img 
-          src="/images/banner.jpg" 
-          alt="Explore Mess Menu" 
-          className="w-full h-64 object-cover rounded-lg shadow-md"
+        <img
+          src={image1}
+          alt="Explore Mess Menu"
+          className="w-screen h-screen  shadow-md mt-14"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex justify-center selection:mt-20 items-center">
-          <h1 className="text-4xl text-white font-bold">Explore Mess Menu</h1>
+        <div className="  flex justify-center items-center">
+          {/* <h1 className="text-4xl text-white font-bold">Explore Mess Menu</h1> */}
         </div>
       </div>
-      
-      <div className="flex flex-wrap justify-center space-x-6 mb-6">
-        {Object.keys(menuData).map((category) => (
-          <Category key={category} category={category} items={menuData[category]} addToCart={addToCart} />
-        ))}
+
+      {/* Menu Selection Buttons */}
+      <div className="flex justify-center space-x-4 mb-6">
+        <button
+          className="bg-green-500 text-white py-2 px-6 rounded-lg"
+          onClick={() => setMenuType('veg')}
+        >
+          Veg Menu
+        </button>
+        <button
+          className="bg-red-500 text-white py-2 px-6 rounded-lg"
+          onClick={() => setMenuType('nonVeg')}
+        >
+          Non-Veg Menu
+        </button>
       </div>
+
+      {/* Render Menu Based on Selection */}
+      {menuType && (
+        <div className="mt-8">
+          <h2 className="text-2xl font-semibold">{menuType === 'veg' ? 'Veg Menu' : 'Non-Veg Menu'}</h2>
+          <div className="mt-4">{renderMenuItems(menuData[menuType])}</div>
+        </div>
+      )}
 
       {/* Cart Summary */}
       <div className="mt-8">
         <h2 className="text-2xl font-semibold">Cart Summary</h2>
         <ul className="list-disc ml-6">
           {cart.map((item, index) => (
-            <li key={index}>{item.name} - ₹{item.price}</li>
+            <li key={index}>
+              {item.name} - ₹{item.price}
+            </li>
           ))}
         </ul>
-        <h3 className="text-xl font-bold mt-4">Total: ₹{getTotalPrice()}</h3>
+        <h3 className="text-xl font-bold mt-4">Total: ₹{cart.reduce((total, item) => total + item.price, 0)}</h3>
       </div>
     </div>
   );
 };
 
-// Category Component
-const Category = ({ category, items, addToCart }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="w-full md:w-1/3 p-2 border border-gray-200 rounded-lg shadow-lg">
-      <h2 className="text-xl font-semibold cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-        {category.charAt(0).toUpperCase() + category.slice(1)} Menu
-      </h2>
-      
-      {isOpen && (
-        <div className="mt-4">
-          {Object.keys(items).map((type) => (
-            <div key={type} className="mb-4">
-              <h3 className="text-lg font-medium capitalize">{type}</h3>
-              <ul className="mt-2 space-y-2">
-                {items[type].map((menuItem, idx) => (
-                  <MenuItem key={idx} item={menuItem} addToCart={addToCart} />
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
-// MenuItem Component with Image
+// MenuItem Component
 const MenuItem = ({ item, addToCart }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <li className="flex justify-between items-center p-2 border border-gray-300 rounded-lg">
-      <div className="flex items-center space-x-4">
-        <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded-lg" />
-        <div>
-          <p>{item.name}</p>
-          <p className="text-sm text-gray-600">₹{item.price}</p>
+    <>
+      <div className="border border-gray-300 rounded-lg p-4 shadow-md">
+        <img src={rice1} alt={item.name} className="w-full h-32 object-cover rounded-lg mb-4" />
+        <h3 className="text-xl font-semibold">{item.name}</h3>
+        <p className="text-gray-600 mb-2">{item.description}</p>
+        <p className="font-bold">₹{item.price}</p>
+        <p className="text-yellow-500">Rating: {item.rating}⭐</p>
+
+        <div className="flex items-center space-x-4 mt-4">
+          <input
+            type="number"
+            className="w-16 border border-gray-400 rounded-lg text-center"
+            value={quantity}
+            min={1}
+            onChange={(e) => setQuantity(e.target.value)}
+          />
+          <button
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg"
+            onClick={() => addToCart({ ...item, quantity })}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
-      <div className="flex items-center space-x-2">
+
+      <div className="border border-gray-300 rounded-lg p-4 shadow-md">
+        <img src={rice2} alt={item.name} className="w-full h-48   mb-4" />
+        <h3 className="text-xl font-semibold">{item.name}</h3>
+        <p className="text-gray-600 mb-2">{item.description}</p>
+        <p className="font-bold">₹{item.price}</p>
+        <p className="text-yellow-500">Rating: {item.rating}⭐</p>
+
+        <div className="flex items-center space-x-4 mt-4">
         <input
           type="number"
-          className="w-12 border rounded-lg text-center"
+            className="w-16 border border-gray-400 rounded-lg text-center"
           value={quantity}
           min={1}
           onChange={(e) => setQuantity(e.target.value)}
         />
         <button
-          className="bg-blue-500 text-white py-1 px-3 rounded-lg"
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg"
           onClick={() => addToCart({ ...item, quantity })}
         >
           Add to Cart
         </button>
       </div>
-    </li>
+      </div>
+      <div className="border border-gray-300 rounded-lg p-4 shadow-md">
+        <img src={rice3} alt={item.name} className="w-full h-48   mb-4" />
+        <h3 className="text-xl font-semibold">{item.name}</h3>
+        <p className="text-gray-600 mb-2">{item.description}</p>
+        <p className="font-bold">₹{item.price}</p>
+        <p className="text-yellow-500">Rating: {item.rating}⭐</p>
+
+        <div className="flex items-center space-x-4 mt-4">
+        <input
+          type="number"
+            className="w-16 border border-gray-400 rounded-lg text-center"
+          value={quantity}
+          min={1}
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+        <button
+            className="bg-blue-500 text-white py-2 px-4 rounded-lg"
+          onClick={() => addToCart({ ...item, quantity })}
+        >
+          Add to Cart
+        </button>
+      </div>
+      </div>
+    </>
   );
 };
 
