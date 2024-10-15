@@ -7,7 +7,7 @@ const MessCard = ({ name, image, description, price, deliveryTime, rating }) => 
   return (
     <>
       {/* Mess Card */}
-      <div className="flex bg-[#efe1de] rounded-lg shadow-md overflow-hidden mb-6">
+      <div className="flex bg-pink-200 border-2 border-pink-500 rounded-lg shadow-md overflow-hidden mb-6">
         {/* Image Section */}
         <div className="flex-shrink-0">
           <img src={image} alt={name} className="w-64 h-96 object-cover" />
@@ -37,17 +37,17 @@ const MessCard = ({ name, image, description, price, deliveryTime, rating }) => 
           </div>
 
           {/* Buttons Section */}
-          <div className="mt-6 flex space-x-4">
+          <div className="mt-6 flex space-x-5">
             {/* Contact Now Button (React internal navigation) */}
             <Link to="/ContactUs">
-              <button className="bg-[#5b3846] text-white px-4 py-2 rounded-md hover:bg-white hover:text-black">
+              <button className="bg-[#5b3846] text-white px-4 py-2 rounded-lg hover:bg-white hover:text-black">
                 Contact Now
               </button>
             </Link>
 
             
             <Link to="/ExploreNow">
-              <button className="bg-pink-500 text-black px-4 py-2 rounded-md hover:bg-black hover:text-white">
+              <button className="bg-pink-500 text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
                 Explore More
               </button>
             </Link>
