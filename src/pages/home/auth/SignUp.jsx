@@ -24,6 +24,7 @@ const SignUp = () => {
     const auth = getAuth(); // Initialize Firebase Authentication
     const googleProvider = new GoogleAuthProvider(); // Initialize Google Auth Provider
 
+    // Handle form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -32,6 +33,7 @@ const SignUp = () => {
         }));
     };
 
+    // Handle file input changes (for profile picture)
     const handleFileChange = (e) => {
         setFormData((prevData) => ({
             ...prevData,
@@ -39,6 +41,7 @@ const SignUp = () => {
         }));
     };
 
+    // Handle user type selection
     const handleUserTypeChange = (userType) => {
         if (userType === "Multi-Mess Manager" && multiMessManagerRegistered) return;
         setFormData((prevData) => ({
@@ -48,6 +51,7 @@ const SignUp = () => {
         if (userType === "Multi-Mess Manager") setMultiMessManagerRegistered(true);
     };
 
+    // Form validation logic
     const validateForm = () => {
         const { name, email, password, phone, userType } = formData;
         if (!name || !email || !password || !phone || !userType) {
@@ -65,12 +69,12 @@ const SignUp = () => {
         return true;
     };
 
+    // Handle form submission for email/password sign up
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateForm()) return; // Validate form data before submission
 
         try {
-            // Create user with email and password
             const { email, password } = formData;
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -107,7 +111,7 @@ const SignUp = () => {
                 name: formData.name,
                 email: formData.email,
                 phone: formData.phone,
-                userType: formData.userType, // Ensure userType is included, but no default value
+                userType: formData.userType, // Ensure userType is included
                 address: formData.address,
                 organization: formData.organization,
                 dob: formData.dob,
@@ -125,7 +129,13 @@ const SignUp = () => {
         }
     };
 
+    // Handle Google sign-in
     const handleGoogleSignIn = async () => {
+        if (!formData.userType) {
+            setError("Please select a user type before signing in with Google.");
+            return;
+        }
+
         try {
             const result = await signInWithPopup(auth, googleProvider);
             const user = result.user;
@@ -136,7 +146,7 @@ const SignUp = () => {
                 name: user.displayName,
                 email: user.email,
                 phone: "", // Set default values or leave as is
-                userType: "", // No default value for userType
+                userType: formData.userType, // Get the selected userType
                 address: "",
                 organization: "",
                 dob: "",
@@ -157,7 +167,6 @@ const SignUp = () => {
     return (
         <div className="min-h-screen flex flex-col bg-[#F7D7DC] p-4">
             <div className="max-w-3xl w-full bg-[#E8B4BC] p-8 rounded-lg shadow-md mx-auto">
-
                 <div className="flex items-center mb-6">
                     <button
                         onClick={() => navigate("/login")}
@@ -169,6 +178,8 @@ const SignUp = () => {
                         {formData.userType ? `${formData.userType} Registration` : "Registration Form"}
                     </h1>
                 </div>
+
+                {/* User type buttons */}
                 <div className="flex space-x-4 mb-6">
                     <button
                         type="button"
@@ -204,6 +215,7 @@ const SignUp = () => {
                     )}
                 </div>
 
+                {/* Form for sign up */}
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Display Form Error */}
                     {error && <p className="text-red-500 text-center">{error}</p>}
@@ -220,9 +232,7 @@ const SignUp = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                placeholder="Enter your full name"
-                                required
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
                         </div>
                         <div>
@@ -235,12 +245,12 @@ const SignUp = () => {
                                 name="dob"
                                 value={formData.dob}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
                         </div>
                     </div>
 
-                    {/* Email and Password */}
+                    {/* Email and Phone */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-[#3A3238]">
@@ -252,65 +262,58 @@ const SignUp = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                placeholder="Enter your email"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label htmlFor="password" className="block text-sm font-medium text-[#3A3238]">
-                                Password
-                            </label>
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                value={formData.password}
-                                onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                placeholder="Enter a password"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    {/* Address and Phone Number */}
-                    <div className="grid grid-cols-2 gap-4">
-                        <div>
-                            <label htmlFor="address" className="block text-sm font-medium text-[#3A3238]">
-                                Address
-                            </label>
-                            <input
-                                type="text"
-                                id="address"
-                                name="address"
-                                value={formData.address}
-                                onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                placeholder="Enter your address"
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
                         </div>
                         <div>
                             <label htmlFor="phone" className="block text-sm font-medium text-[#3A3238]">
-                                Phone Number
+                                Phone
                             </label>
                             <input
-                                type="tel"
+                                type="text"
                                 id="phone"
                                 name="phone"
                                 value={formData.phone}
                                 onChange={handleChange}
-                                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                                placeholder="Enter your phone number"
-                                required
+                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
                         </div>
+                    </div>
+
+                    {/* Password */}
+                    <div>
+                        <label htmlFor="password" className="block text-sm font-medium text-[#3A3238]">
+                            Password
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        />
+                    </div>
+
+                    {/* Address */}
+                    <div>
+                        <label htmlFor="address" className="block text-sm font-medium text-[#3A3238]">
+                            Address
+                        </label>
+                        <input
+                            type="text"
+                            id="address"
+                            name="address"
+                            value={formData.address}
+                            onChange={handleChange}
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                        />
                     </div>
 
                     {/* Organization */}
                     <div>
                         <label htmlFor="organization" className="block text-sm font-medium text-[#3A3238]">
-                            Organization (Optional)
+                            Organization
                         </label>
                         <input
                             type="text"
@@ -318,15 +321,14 @@ const SignUp = () => {
                             name="organization"
                             value={formData.organization}
                             onChange={handleChange}
-                            className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                            placeholder="Enter your organization"
+                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                         />
                     </div>
 
                     {/* Profile Picture */}
                     <div>
                         <label htmlFor="profilePicture" className="block text-sm font-medium text-[#3A3238]">
-                            Profile Picture (Optional)
+                            Profile Picture
                         </label>
                         <input
                             type="file"
@@ -338,27 +340,21 @@ const SignUp = () => {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="flex items-center justify-between">
-                        <button
-                            type="submit"
-                            className="w-full h-12 bg-[#3A3238] text-white font-bold rounded-lg hover:bg-[#6E4555] hover:text-[#F7D7DC]"
-                        >
-                            Register
-                        </button>
-                    </div>
-
-                    {/* Google Sign In Button */}
-                    <div className="text-center mt-4">
-                        <p className="text-[#3A3238]">Or sign in with Google</p>
-                        <button
-                            type="button"
-                            onClick={handleGoogleSignIn}
-                            className="mt-2 w-full h-12 bg-white text-[#3A3238] font-bold border border-[#3A3238] rounded-lg hover:bg-[#F7D7DC] hover:border-[#6E4555]"
-                        >
-                            Sign in with Google
-                        </button>
-                    </div>
+                    <button
+                        type="submit"
+                        className="w-full py-2 px-4 bg-[#6E4555] text-white rounded-lg text-lg font-bold hover:bg-[#3A3238]"
+                    >
+                        Sign Up
+                    </button>
                 </form>
+
+                {/* Google Sign-In Button */}
+                <button
+                    onClick={handleGoogleSignIn}
+                    className="w-full mt-4 py-2 px-4 bg-[#E8B4BC] text-[#3A3238] rounded-lg text-lg font-bold hover:bg-[#6E4555] hover:text-white"
+                >
+                    Sign In with Google
+                </button>
             </div>
         </div>
     );
