@@ -16,6 +16,24 @@ import veg13 from "../../assets/tiffineimges/beetrootparatha.jpg";
 import veg14 from "../../assets/tiffineimges/aluparatha.jpeg";
 import veg15 from "../../assets/tiffineimges/palak.jpeg";
 import veg16 from "../../assets/tiffineimges/soya.webp";
+//nonvegmenu
+import nv1 from "../../assets/tiffineimges/eggbiryani.jpeg";
+import nv2 from "../../assets/tiffineimges/chickenbiryani.jpeg";
+import nv3 from "../../assets/tiffineimges/muttonbiryani.jpeg";
+import nv4 from "../../assets/tiffineimges/mutton.jpeg";
+import nv5 from "../../assets/tiffineimges/fish.jpeg";
+import nv6 from "../../assets/tiffineimges/fishfry.jpeg";
+import nv7 from "../../assets/tiffineimges/eggcurry.jpeg";
+import nv8 from "../../assets/tiffineimges/eggbhurji.jpeg";
+import nv9 from "../../assets/tiffineimges/drymutton.jpeg";
+import nv10 from "../../assets/tiffineimges/drychicken.jpeg";
+import nv11 from "../../assets/tiffineimges/chicken.jpeg";
+import nv12 from "../../assets/tiffineimges/mutton.jpeg";
+
+
+
+
+
 
 
 
@@ -153,64 +171,92 @@ const ExploreNow = () => {
     nonVeg: {
       rice: [
         {
-          name: 'masala chana',
+          name: 'egg biryani tiffin',
           price: 150,
           rating: 4.9,
           description: 'Flavourful chicken biryani with rich spices.',
-          image: veg5
+          image: nv1
         },
 
         {
-          name: 'Mutton Biryani',
+          name: 'chicken Biryani tiffin',
           price: 200,
           rating: 4.7,
           description: 'Aromatic biryani made with tender mutton.',
-          image: '/images/mutton_biryani.jpg'
+          image: nv2
         }
       ],
       sabji: [
         {
-          name: 'Chicken Curry',
+          name: 'Chicken biryani tiffin',
           price: 180,
           rating: 4.5,
           description: 'Spicy and rich chicken curry.',
-          image: '/images/chicken_curry.jpg'
+          image: nv3
         },
         {
-          name: 'Mutton Curry',
+          name: 'Mutton Curry tiffin',
           price: 220,
           rating: 4.8,
           description: 'Tender mutton in flavorful curry.',
-          image: '/images/mutton_curry.jpg'
+          image: nv4
         },
 
         {
-          name: 'Mutton Curry',
+          name: 'fish Curry tiffin',
           price: 220,
           rating: 4.8,
           description: 'Tender mutton in flavorful curry.',
-          image: '/images/mutton_curry.jpg'
+          image: nv5
         },
         {
-          name: 'Mutton Curry',
+          name: ' fish fry tiffin',
           price: 220,
           rating: 4.8,
           description: 'Tender mutton in flavorful curry.',
-          image: '/images/mutton_curry.jpg'
+          image: nv6
         },
         {
-          name: 'Mutton Curry',
+          name: 'egg  Curry tiffin',
           price: 220,
           rating: 4.8,
           description: 'Tender mutton in flavorful curry.',
-          image: '/images/mutton_curry.jpg'
+          image: nv7
         },
         {
-          name: 'Mutton Curry',
+          name: 'egg bhurji tiffin',
           price: 220,
           rating: 4.8,
           description: 'Tender mutton in flavorful curry.',
-          image: '/images/mutton_curry.jpg'
+          image: nv8
+        },
+        {
+          name: 'chicken fry tiffin',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: nv9
+        },
+        {
+          name: 'Mutton fry tiffin',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: nv10
+        },
+        {
+          name: 'chicken Curry tiffin',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: nv11
+        },
+        {
+          name: 'Mutton Curry tiffin',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: nv12
         }
       ],
     }
