@@ -4,6 +4,18 @@ import veg1 from "../../assets/tiffineimges/alu.webp";
 import veg2 from "../../assets/tiffineimges/alugobi.jpg";
 import veg3 from "../../assets/tiffineimges/brinjal.jpg";
 import veg4 from "../../assets/tiffineimges/ladyfinger.jpg";
+import veg5 from "../../assets/tiffineimges/masala.webp";
+import veg6 from "../../assets/tiffineimges/frenchbeans.jpeg";
+import veg7 from "../../assets/tiffineimges/masala.webp";
+import veg8 from "../../assets/tiffineimges/paneer.jpg";
+import veg9 from "../../assets/tiffineimges/paneerbhurji.webp";
+import veg10 from "../../assets/tiffineimges/sabudana.webp";
+import veg11 from "../../assets/tiffineimges/southindian.avif";
+import veg12 from "../../assets/tiffineimges/misalpav.jpeg";
+import veg13 from "../../assets/tiffineimges/beetrootparatha.jpg";
+import veg14 from "../../assets/tiffineimges/aluparatha.jpeg";
+import veg15 from "../../assets/tiffineimges/palak.jpeg";
+import veg16 from "../../assets/tiffineimges/soya.webp";
 
 
 
@@ -13,7 +25,7 @@ const ExploreNow = () => {
 
   const menuData = {
     veg: {
-      rice: [
+      menu: [
         {
           name: 'masala alu tiffin',
           price: 50,
@@ -50,15 +62,102 @@ const ExploreNow = () => {
           image: veg4
         }
       ],
+      paneer: [
+        {
+          name: 'masala chana',
+          price: 120,
+          rating: 4.8,
+          description: 'Delicious paneer cooked in buttery tomato gravy.',
+          image: veg5
+        },
+        {
+          name: 'french beans',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg6
+        },
+        {
+          name: 'masala chana',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg7
+        },
+        {
+          name: 'panner',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg8
+        },
+        {
+          name: 'paneer bhurji',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg9
+        },
+        {
+          name: 'sabudana',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg10
+        },
+        {
+          name: 'southindian',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg11
+        },
+        {
+          name: 'misal pav',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg12
+        },
+        {
+          name: 'beetroot paratha',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg13
+        },
+        {
+          name: 'alu paratha',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg14
+        },
+        {
+          name: 'palak',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg15
+        },
+        {
+          name: 'soya',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: veg16
+        }
+
+      ]
     },
     nonVeg: {
       rice: [
         {
-          name: 'Chicken Biryani',
+          name: 'masala chana',
           price: 150,
           rating: 4.9,
           description: 'Flavourful chicken biryani with rich spices.',
-          image: '/images/chicken_biryani.jpg'
+          image: veg5
         },
 
         {
@@ -76,6 +175,35 @@ const ExploreNow = () => {
           rating: 4.5,
           description: 'Spicy and rich chicken curry.',
           image: '/images/chicken_curry.jpg'
+        },
+        {
+          name: 'Mutton Curry',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: '/images/mutton_curry.jpg'
+        },
+
+        {
+          name: 'Mutton Curry',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: '/images/mutton_curry.jpg'
+        },
+        {
+          name: 'Mutton Curry',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: '/images/mutton_curry.jpg'
+        },
+        {
+          name: 'Mutton Curry',
+          price: 220,
+          rating: 4.8,
+          description: 'Tender mutton in flavorful curry.',
+          image: '/images/mutton_curry.jpg'
         },
         {
           name: 'Mutton Curry',
