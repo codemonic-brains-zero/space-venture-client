@@ -7,24 +7,23 @@ import { RiArrowDownSFill, RiArrowRightSFill } from "react-icons/ri";
 import logo from "../../assets/common/logo.png";
 
 const links = [
-    { href: '/user-dashboard', label: 'Home' },
-    { href: '/mess-outlets', label: 'Mess' },
-    { href: '#', label: 'Track', hasDropdown: true },
-    { href: '/rent-a-room', label: 'Rent A Room' },
+    { href: '/user-home', label: 'Home' },
+    { href: '/rent-a-room', label: 'Room Search & Booking' },
+    { href: '/my-room', label: 'My Bookings' },
+    { href: '/mess-outlets', label: "Check-out Mess Outlet's" },
+    // { href: '#', label: 'Track', hasDropdown: true },
     { href: '/room-mates', label: 'Find A Roommate' },
-    { href: '/add-roommate', label: 'Add Roommate' }
+    // { href: '/add-roommate', label: 'Add Roommate' }
 ];
 
 const dropdownLinks = [
-    { href: '/profile', label: 'Profile' },
-    { href: '/settings', label: 'Settings' },
     { href: '/logout', label: 'Logout' }
 ];
 
-const bookingsDropdownLinks = [
-    { href: '/track/room', label: 'Track Room Booking' },
-    { href: '/track/mess', label: 'Track Mess Order' }
-];
+// const bookingsDropdownLinks = [
+//     { href: '/track/room', label: 'Track Room Booking' },
+//     { href: '/track/mess', label: 'Track Mess Order' }
+// ];
 
 const UserNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
