@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Import Axios
-import firebase from 'firebase/app'; // Make sure to configure Firebase as per your project
-import 'firebase/database'; // Import Firebase database if you are using Firebase Realtime Database
+import { ref, push, set } from 'firebase/database'; // Import Firebase database methods
+import { fireDB } from './'; // Import your Firebase configuration
 
 const AddMenu = () => {
   const [formData, setFormData] = useState({
@@ -64,9 +64,10 @@ const AddMenu = () => {
         images: imageUrls // Store Cloudinary URLs
       };
 
-      // Store data in Firebase
-      const newEntryRef = firebase.database().ref('messCards').push(); // Change 'messCards' to your desired path
-      await newEntryRef.set(dataToSubmit);
+      // Store data in Firebase Realtime Database
+      const newEntryRef = ref(fireDB, 'messCards'); // 'messCards' is the Firebase Realtime DB path
+      const newItem = push(newEntryRef);
+      await set(newItem, dataToSubmit);
 
       alert('Mess card added successfully!');
       // Reset form or redirect as needed
