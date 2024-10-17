@@ -5,7 +5,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Ensure your environment variable is correctly set in .env file
 const firebaseConfig = {
-    apiKey: import.meta.env.VITE_SPACE_VENTURE_API,
+    apiKey: import.meta.env.VITE_SPACE_VENTURE_API,  // Ensure this env variable is correctly set
     authDomain: "space-venture-client.firebaseapp.com",
     projectId: "space-venture-client",
     storageBucket: "space-venture-client.appspot.com",
