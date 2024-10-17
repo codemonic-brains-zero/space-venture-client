@@ -15,13 +15,10 @@ import MessOutlets from "./pages/mess/MessOutlets";
 import UserHome from "./pages/client/UserHome";
 import MultiMessManagerHome from "./pages/mess/MultiMessManagerHome";
 import ResidencyOwnerHome from "./pages/recidencies/ResidencyOwnerHome";
-import RegisterMess from "./pages/mess/RegisterMess";
 import Bookings from "./pages/recidencies/Bookings"
 import ExploreNow from "./components/mess/ExploreNow";
 import ContactUs from "./components/mess/ContactUs";
 import AddRoommateForm from "./pages/client/AddRoomate";
-import AddMenu from "./pages/mess/AddMenu";
-import MessCard from "./components/mess/MessCard";
 
 function App() {
   return (
@@ -50,7 +47,7 @@ function App() {
               </Route>
 
               <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>
-                <Route path="/residency-owner-home" element={<ResidencyOwnerHome />} />
+                <Route path="/residence-owner-home" element={<ResidencyOwnerHome />} />
                 <Route path="/register-room" element={<RegisterRoom />} />
                 <Route path="/register-bookings" element={<Bookings />} />
               </Route>

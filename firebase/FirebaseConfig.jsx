@@ -1,9 +1,8 @@
-// src/firebase/FirebaseConfig.js
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// Ensure your environment variable is correctly set in .env file
+// Firebase configuration using environment variables
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_SPACE_VENTURE_API,  // Ensure this env variable is correctly set
     authDomain: "space-venture-client.firebaseapp.com",
@@ -14,8 +13,13 @@ const firebaseConfig = {
     measurementId: "G-4SN96K7GJ3"
 };
 
-// Initialize Firebase app
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase only if it hasn't been initialized yet
+let app;
+if (!getApps().length) {
+    app = initializeApp(firebaseConfig);
+} else {
+    app = getApps()[0]; // Reuse the already initialized app
+}
 
 // Initialize Firebase Auth and Firestore
 const auth = getAuth(app);
