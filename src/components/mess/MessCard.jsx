@@ -3,19 +3,12 @@ import { Link } from 'react-router-dom';
 
 const MessCard = ({ name, images = [], description, price, deliveryTime, rating }) => {
   return (
-    <div className="bg-[#efe1de] rounded-lg shadow-md overflow-hidden flex flex-col items-center">
-
-      {/* Image Section */}
-      {images.length > 0 && (
-        <div className="w-full flex flex-wrap justify-center">
-          {images.map((image, index) => (
-            <img
-              key={index}
-              src={URL.createObjectURL(image)}
-              alt={`${name} ${index + 1}`}
-              className="w-1/4 h-40 object-cover m-2"
-            />
-          ))}
+    <>
+      {/* Mess Card */}
+      <div className="flex bg-pink-200 border-2 border-pink-500 rounded-lg shadow-md overflow-hidden mb-6">
+        {/* Image Section */}
+        <div className="flex-shrink-0">
+          <img src={image} alt={name} className="w-64 h-96 object-cover" />
         </div>
       )}
 
@@ -38,22 +31,25 @@ const MessCard = ({ name, images = [], description, price, deliveryTime, rating 
           </span>
         </div>
 
-        {/* Buttons Section with Flexbox for Left and Right Alignment */}
-        <div className="mt-6 flex w-full">
-          <Link to="/ContactUs" className="flex-grow">
-            <button className="bg-[#5b3846] text-white px-4 py-2 rounded-l-md w-full hover:bg-white hover:text-black">
-              Contact Now
-            </button>
-          </Link>
+          {/* Buttons Section */}
+          <div className="mt-6 flex space-x-5">
+            {/* Contact Now Button (React internal navigation) */}
+            <Link to="/ContactUs">
+              <button className="bg-[#5b3846] text-white px-4 py-2 rounded-lg hover:bg-white hover:text-black">
+                Contact Now
+              </button>
+            </Link>
 
-          <Link to="/ExploreNow" className="flex-grow">
-            <button className="bg-pink-500 text-black px-4 py-2 rounded-r-md w-full hover:bg-black hover:text-white">
-              Explore More
-            </button>
-          </Link>
+            
+            <Link to="/ExploreNow">
+              <button className="bg-pink-500 text-black px-4 py-2 rounded-lg hover:bg-black hover:text-white">
+                Explore More
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
