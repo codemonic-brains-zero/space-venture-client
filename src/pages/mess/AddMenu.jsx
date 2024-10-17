@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Import Axios
+import firebase from 'firebase/app'; // Make sure to configure Firebase as per your project
+import 'firebase/database'; // Import Firebase database if you are using Firebase Realtime Database
 
 const AddMenu = () => {
   const [formData, setFormData] = useState({
-    messOutletName: '',
-    menuItemName: '',
+    name: '',
+    images: [],
     description: '',
     price: '',
-    images: []
+    deliveryTime: '',
+    rating: ''
   });
 
-  // Handle form input changes
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -18,108 +21,160 @@ const AddMenu = () => {
     });
   };
 
-  // Handle image upload
-  const handleImageUpload = (e) => {
-    const files = Array.from(e.target.files);
+  const handleImagesChange = (e) => {
+    const files = Array.from(e.target.files).slice(0, 4);
     setFormData({
       ...formData,
       images: files
     });
   };
 
-  // Handle form submission
-  const handleSubmit = (e) => {
+  const uploadImagesToCloudinary = async (images) => {
+    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/image/upload`; // Update with your Cloudinary cloud name
+    const cloudinaryPreset = 'YOUR_PRESET'; // Update with your upload preset
+
+    const uploadedImageUrls = await Promise.all(
+      images.map(async (image) => {
+        const formData = new FormData();
+        formData.append('file', image);
+        formData.append('upload_preset', cloudinaryPreset);
+
+        const response = await axios.post(cloudinaryUrl, formData);
+        return response.data.secure_url; // Return the URL of the uploaded image
+      })
+    );
+
+    return uploadedImageUrls; // Return all uploaded image URLs
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here, e.g., send the data to your server or store it in your database
-    console.log(formData);
+
+    try {
+      // Upload images and get their URLs
+      const imageUrls = await uploadImagesToCloudinary(formData.images);
+
+      // Prepare data to store in Firebase
+      const dataToSubmit = {
+        name: formData.name,
+        description: formData.description,
+        price: formData.price,
+        deliveryTime: formData.deliveryTime,
+        rating: formData.rating,
+        images: imageUrls // Store Cloudinary URLs
+      };
+
+      // Store data in Firebase
+      const newEntryRef = firebase.database().ref('messCards').push(); // Change 'messCards' to your desired path
+      await newEntryRef.set(dataToSubmit);
+
+      alert('Mess card added successfully!');
+      // Reset form or redirect as needed
+      setFormData({
+        name: '',
+        images: [],
+        description: '',
+        price: '',
+        deliveryTime: '',
+        rating: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form', error);
+      alert('Failed to add mess card');
+    }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
-      <h2 className="text-2xl font-bold mb-6">Add Mess Menu</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Mess Outlet Name */}
+    <div className="flex items-center justify-center h-screen">
+      <form
+        className="bg-misty-rose p-6 sm:p-8 shadow-md rounded-lg max-w-md w-full transition-transform transform hover:scale-105"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-2xl font-semibold mb-4 text-center text-eggplant">Add New Mess Card</h2>
+
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="messOutletName">Mess Outlet Name</label>
+          <label className="block text-eggplant">Mess Name:</label>
           <input
             type="text"
-            name="messOutletName"
-            value={formData.messOutletName}
-            onChange={handleChange}
-            placeholder="Enter Mess Outlet Name"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-orchid-pink rounded-md focus:outline-none focus:ring-2 focus:ring-thulian-pink"
             required
           />
         </div>
 
-        {/* Menu Item Name */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="menuItemName">Menu Item Name</label>
-          <input
-            type="text"
-            name="menuItemName"
-            value={formData.menuItemName}
-            onChange={handleChange}
-            placeholder="Enter Menu Item Name"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
-        </div>
-
-        {/* Description */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="description">Description</label>
-          <textarea
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Enter Description"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-            rows="4"
-            required
-          />
-        </div>
-
-        {/* Price */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="price">Price</label>
-          <input
-            type="number"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-            placeholder="Enter Price"
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-            required
-          />
-        </div>
-
-        {/* Image Upload */}
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="images">Upload Menu Images (Max 4)</label>
+          <label className="block text-eggplant">Mess Images (Max 4):</label>
           <input
             type="file"
             name="images"
             accept="image/*"
             multiple
-            onChange={handleImageUpload}
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            onChange={handleImagesChange}
+            className="w-full p-2 border border-orchid-pink rounded-md focus:outline-none focus:ring-2 focus:ring-thulian-pink"
+            required
           />
-          {formData.images.length > 4 && (
-            <p className="text-red-500 text-sm">You can only upload up to 4 images</p>
-          )}
         </div>
 
-        {/* Submit Button */}
-        <div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            disabled={formData.images.length > 4}
-          >
-            Add Menu
-          </button>
+        <div className="flex mb-4 space-x-4">
+          <div className="flex-1">
+            <label className="block text-eggplant">Price:</label>
+            <input
+              type="number"
+              name="price"
+              value={formData.price}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-orchid-pink rounded-md focus:outline-none focus:ring-2 focus:ring-thulian-pink"
+              required
+            />
+          </div>
+
+          <div className="flex-1">
+            <label className="block text-eggplant">Delivery Time:</label>
+            <input
+              type="text"
+              name="deliveryTime"
+              value={formData.deliveryTime}
+              onChange={handleInputChange}
+              className="w-full p-2 border border-orchid-pink rounded-md focus:outline-none focus:ring-2 focus:ring-thulian-pink"
+              required
+            />
+          </div>
         </div>
+
+        <div className="mb-4">
+          <label className="block text-eggplant">Description:</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-orchid-pink rounded-md focus:outline-none focus:ring-2 focus:ring-thulian-pink"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-eggplant">Rating: (1.0 - 5.0)</label>
+          <input
+            type="number"
+            name="rating"
+            value={formData.rating}
+            onChange={handleInputChange}
+            className="w-full p-2 border border-orchid-pink rounded-md focus:outline-none focus:ring-2 focus:ring-thulian-pink"
+            step="0.1"
+            max="5"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="bg-eggplant text-white px-4 py-2 rounded-md hover:bg-thulian-pink w-full transition-colors duration-200"
+        >
+          Add Mess Card
+        </button>
       </form>
     </div>
   );
