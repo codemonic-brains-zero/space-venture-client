@@ -19,6 +19,7 @@ import Bookings from "./pages/recidencies/Bookings"
 import ExploreNow from "./components/mess/ExploreNow";
 import ContactUs from "./components/mess/ContactUs";
 import AddRoommateForm from "./pages/client/AddRoomate";
+import ViewBooking from "./pages/client/ViewBooking";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/book-rooms" element={<BookRooms />} />
                 <Route path="/rent-a-room" element={<RentARoom />} />
                 <Route path="/add-roommate" element={<AddRoommateForm />} />
+                <Route path="/view-booking" element={<ViewBooking />} />
                 <Route path="/room-mates" element={<RoomMates />} />
                 <Route path="/mess-outlets" element={<MessOutlets />} />
                 <Route path="/explorenow" element={<ExploreNow />} />
