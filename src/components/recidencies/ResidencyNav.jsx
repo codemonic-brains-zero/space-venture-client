@@ -6,9 +6,9 @@ import { RiArrowDownSFill, RiArrowRightSFill } from "react-icons/ri";
 import logo from '../../assets/common/logo.png';
 
 const links = [
-    { href: '/', label: 'Home' },
+    { href: '/residence-owner-home', label: 'Home' },
     { href: '#', label: 'Bookings', hasDropdown: true },
-    { href: '/about', label: 'Register Your Mess' },
+    { href: '/register-room', label: 'Add Your Rooms' },
     { href: '/services', label: 'Add Your Outlets' }
 ];
 
@@ -21,7 +21,6 @@ const dropdownLinks = [
 const bookingsDropdownLinks = [
     { href: '/register-bookings', label: 'Room Booking' },
     { href: '/bookings/mess', label: 'Mess' },
-    { href: '/register-room', label: 'Register Room' },   
 ];
 
 const RecidencyNav = () => {
@@ -53,10 +52,10 @@ const RecidencyNav = () => {
                             </button>
                         </div>
                         <div className="flex-shrink-0 h-24 w-32"> {/* Increased size here */}
-                                <a href="/" className="text-white text-xl font-bold">
-                                    <img src={logo} alt="logo" className="h-full w-full object-contain" /> {/* Adjusted the img size */}
-                                </a>
-                            </div>
+                            <a href="/" className="text-white text-xl font-bold">
+                                <img src={logo} alt="logo" className="h-full w-full object-contain" /> {/* Adjusted the img size */}
+                            </a>
+                        </div>
                     </div>
 
                     {/* Main Links for Desktop */}

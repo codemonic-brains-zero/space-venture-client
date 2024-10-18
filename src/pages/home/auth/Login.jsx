@@ -41,7 +41,7 @@ const Login = () => {
             if (formData.userType === "User") {
                 navigate("/user-home");
             } else if (formData.userType === "Residency Owner") {
-                navigate("/residency-owner-home");
+                navigate("/residence-owner-home");
             } else if (formData.userType === "Multi-Mess Manager") {
                 navigate("/multi-mess-manager-home");
             }
@@ -65,7 +65,7 @@ const Login = () => {
             if (formData.userType === "User") {
                 navigate("/user-home");
             } else if (formData.userType === "Residency Owner") {
-                navigate("/residency-owner-home");
+                navigate("/residence-owner-home");
             } else if (formData.userType === "Multi-Mess Manager") {
                 navigate("/multi-mess-manager-home");
             }

@@ -74,8 +74,8 @@ const AddMenu = () => {
       };
 
       // Store data in Firebase
-      const newEntryRef = firebase.database().ref('messCards').push(); // Change 'messCards' to your desired path
-      await newEntryRef.set(dataToSubmit);
+      const newEntryRef = push(ref(database, 'messCards')); // Change 'messCards' to your desired path
+      await set(newEntryRef, dataToSubmit);
 
       alert('Mess card added successfully!');
       // Reset form or redirect as needed
