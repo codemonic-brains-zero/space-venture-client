@@ -290,17 +290,18 @@ const ExploreNow = () => {
       {/* Veg and Non-Veg Buttons */}
       <div className="flex justify-center space-x-4 mb-8">
         <button
-          className={`py-2 px-4 rounded-lg text-white ${selectedMenu === 'veg' ? 'bg-green-500' : 'bg-gray-500 hover:bg-green-500'}`}
+          className={`py-2 px-4 rounded-lg  ${selectedMenu === 'veg' ? 'bg-green-500' : 'bg-yellow-300 border-2 border-yellow-500 text-black hover:bg-green-500'}`}
           onClick={() => handleMenuSelect('veg')}
         >
-          Veg Menu
+          Veg Menu 🍃
         </button>
         <button
-          className={`py-2 px-4 rounded-lg text-white ${selectedMenu === 'nonVeg' ? 'bg-red-500' : 'bg-gray-500 hover:bg-red-500'}`}
+          className={`py-2 px-4 rounded-lg text-white ${selectedMenu === 'nonVeg' ? 'bg-red-500' : 'bg-red-500 border-2 border-red-700 hover:bg-red-600'}`}
           onClick={() => handleMenuSelect('nonVeg')}
         >
-          Non-Veg Menu
+          Non-Veg Menu 🍗
         </button>
+
       </div>
 
       {/* Conditional Rendering of Menus */}
@@ -333,7 +334,7 @@ const MenuItem = ({ item, addToCart }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4 shadow-md w-full md:w-56">
+    <div className="border border-gray-300 rounded-lg p-4 shadow-md w-full transition-transform transform hover:scale-110 md:w-56">
       <img
         src={item.image}
         alt={item.name}
