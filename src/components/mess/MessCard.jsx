@@ -10,7 +10,7 @@ const MessCard = ({ name, image, description, price, deliveryTime, rating }) => 
         <div className="flex-shrink-0">
           <img src={image} alt={name} className="w-64 h-96 object-cover" />
         </div>
-      )}
+    
 
         {/* Content Section */}
         <div className="p-6 flex flex-col justify-between w-full">
