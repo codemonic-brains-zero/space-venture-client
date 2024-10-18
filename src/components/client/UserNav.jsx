@@ -9,7 +9,7 @@ import logo from "../../assets/common/logo.png";
 const links = [
     { href: '/user-home', label: 'Home' },
     { href: '/rent-a-room', label: 'Room Search & Booking' },
-    { href: '/my-room', label: 'My Bookings' },
+    { href: '/view-booking', label: 'My Bookings' },
     { href: '/mess-outlets', label: "Check-out Mess Outlet's" },
     // { href: '#', label: 'Track', hasDropdown: true },
     { href: '/room-mates', label: 'Find A Roommate' },
