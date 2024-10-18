@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from 'axios'; // Import Axios
+import firebase from 'firebase/app'; // Make sure to configure Firebase as per your project
+import 'firebase/database'; // Import Firebase database if you are using Firebase Realtime Database
+///import { auth, fireDB } from '../mess/AddMenu.jsx';
+import { getFirestore } from "firebase/firestore";
+
+
+
+
+
+
+
 
 const AddMenu = () => {
   const [formData, setFormData] = useState({
