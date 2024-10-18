@@ -9,7 +9,8 @@ const links = [
     { href: '/residence-owner-home', label: 'Home' },
     { href: '#', label: 'Bookings', hasDropdown: true },
     { href: '/register-room', label: 'Add Your Rooms' },
-    { href: '/services', label: 'Add Your Outlets' }
+    { href: '/services', label: 'Add Your Outlets' },
+    { href: '/owner-booking', label: 'Owner Booking' }
 ];
 
 const dropdownLinks = [

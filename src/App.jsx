@@ -20,6 +20,7 @@ import ExploreNow from "./components/mess/ExploreNow";
 import ContactUs from "./components/mess/ContactUs";
 import AddRoommateForm from "./pages/client/AddRoomate";
 import ViewBooking from "./pages/client/ViewBooking";
+import OwnerBookings from "./pages/recidencies/OwnerBooking";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
                 <Route path="/residence-owner-home" element={<ResidencyOwnerHome />} />
                 <Route path="/register-room" element={<RegisterRoom />} />
                 <Route path="/register-bookings" element={<Bookings />} />
+                <Route path="/owner-booking" element={<OwnerBookings />} />
               </Route>
 
               <Route element={<ProtectedRoute allowedTypes={["Multi-Mess Manager"]} />}>
