@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
-import profile from '../../../backend/database/1727599451698-space-venture.png'
+import profile from '../../../backend/database/1727599451698-space-venture.png';
 import { FaBarsStaggered } from "react-icons/fa6";
 import { GrClose } from "react-icons/gr";
 import { RiArrowDownSFill, RiArrowRightSFill } from "react-icons/ri";
-import logo from '../../assets/common/logo.png'
+import logo from '../../assets/common/logo.png';
 
-const
-    links = [
-        { href: '/multi-mess-manager-home', label: 'Home' },
-        // { href: '#', label: 'Bookings', hasDropdown: true }, // Updated Bookings link
-        { href: '/add-mess-outlet', label: 'Register Your Mess' },
-        { href: '/add-menu', label: 'Add Menu' },
-        { href: '/mess-outlets', label: "View All Outlet's" }
-
-    ];
+const links = [
+    { href: '/multi-mess-manager-home', label: 'Home' },
+    { href: '/add-mess-outlet', label: 'Register Your Mess' },
+    { href: '/add-menu', label: 'Add Menu' },
+    { href: '/mess-outlets', label: "View All Outlets" }
+];
 
 const dropdownLinks = [
     { href: '/logout', label: 'Logout' }
 ];
-
-// const bookingsDropdownLinks = [
-//     { href: '/bookings/room', label: 'Room' },
-//     { href: '/bookings/mess', label: 'Mess' }
-// ];
 
 const MessNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,11 +28,10 @@ const MessNav = () => {
         setIsBookingsDropdownOpen(!isBookingsDropdownOpen);
     };
 
-
     return (
         <>
-            <nav className="">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-[#361a25]"> {/* Background color from UserNav */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         {/* Menu button for mobile screens */}
                         <div className="flex items-center">
@@ -58,49 +49,23 @@ const MessNav = () => {
                                     )}
                                 </button>
                             </div>
-                            <div className="flex-shrink-0 h-24 w-32"> {/* Increased size here */}
+                            <div className="flex-shrink-0 h-24 w-32">
                                 <a href="/" className="text-white text-xl font-bold">
-                                    <img src={logo} alt="logo" className="h-full w-full object-contain" /> {/* Adjusted the img size */}
+                                    <img src={logo} alt="logo" className="h-full w-full object-contain" />
                                 </a>
                             </div>
                         </div>
 
                         <div className="hidden md:block">
                             <div className="ml-10 flex items-baseline space-x-4">
-                                {links.map(({ href, label, hasDropdown }) => (
+                                {links.map(({ href, label }) => (
                                     <div key={href} className="relative flex items-center">
                                         <a
                                             href={href}
-                                            className={`text-white px-3 py-2 rounded-md text-sm font-medium ${hasDropdown ? 'flex items-center cursor-pointer' : ''}`}
-                                            onClick={hasDropdown ? toggleBookingsDropdown : undefined}
+                                            className="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-[#4a2433] transition-colors"
                                         >
                                             {label}
-                                            {hasDropdown && (
-                                                <>
-                                                    {isBookingsDropdownOpen ? (
-                                                        <RiArrowRightSFill className="ml-2 h-5 w-5" aria-hidden="true" />
-                                                    ) : (
-                                                        <RiArrowDownSFill className="ml-2 h-5 w-5" aria-hidden="true" />
-                                                    )}
-                                                </>
-                                            )}
                                         </a>
-                                        {/* Bookings Dropdown Menu */}
-                                        {hasDropdown && isBookingsDropdownOpen && (
-                                            <div className="origin-top-right absolute left-0 mt-32 ml-4 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                <div className="mt-2"> {/* Add margin-top here */}
-                                                    {bookingsDropdownLinks.map(({ href, label }) => (
-                                                        <a
-                                                            key={href}
-                                                            href={href}
-                                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                                                        >
-                                                            {label}
-                                                        </a>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -142,45 +107,21 @@ const MessNav = () => {
                 {/* Mobile menu */}
                 <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                        {links.map(({ href, label, hasDropdown }) => (
+                        {links.map(({ href, label }) => (
                             <div key={href} className="relative flex items-center">
                                 <a
                                     href={href}
-                                    className={`text-white block px-3 py-2 rounded-md text-base font-medium ${hasDropdown ? 'flex items-center cursor-pointer' : ''}`}
-                                    onClick={hasDropdown ? toggleBookingsDropdown : undefined}
+                                    className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-[#4a2433] transition-colors"
                                 >
                                     {label}
-                                    {hasDropdown && (
-                                        <>
-                                            {isBookingsDropdownOpen ? (
-                                                <RiArrowRightSFill className="ml-2 h-5 w-5" aria-hidden="true" />
-                                            ) : (
-                                                <RiArrowDownSFill className="ml-2 h-5 w-5" aria-hidden="true" />
-                                            )}
-                                        </>
-                                    )}
                                 </a>
-                                {/* Bookings Dropdown Menu for mobile */}
-                                {hasDropdown && isBookingsDropdownOpen && (
-                                    <div className="px-2 pt-2 pb-3 space-y-1 bg-white rounded-md shadow-lg mt-2 w-48">
-                                        {bookingsDropdownLinks.map(({ href, label }) => (
-                                            <a
-                                                key={href}
-                                                href={href}
-                                                className="block text-gray-700 hover:bg-gray-100 px-4 py-2 rounded-md"
-                                            >
-                                                {label}
-                                            </a>
-                                        ))}
-                                    </div>
-                                )}
                             </div>
                         ))}
                     </div>
                 </div>
             </nav>
         </>
-    )
-}
+    );
+};
 
-export default MessNav
+export default MessNav;
