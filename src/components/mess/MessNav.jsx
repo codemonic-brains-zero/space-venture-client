@@ -4,11 +4,12 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { GrClose } from "react-icons/gr";
 import { RiArrowDownSFill, RiArrowRightSFill } from "react-icons/ri";
 import logo from '../../assets/common/logo.png';
+// import AddMenu from '../../pages/mess/AddMenu';
 
 const links = [
     { href: '/multi-mess-manager-home', label: 'Home' },
     { href: '/add-mess-outlet', label: 'Register Your Mess' },
-    { href: '/add-menu', label: 'Add Menu' },
+    // { href: '/add-menu', label: 'Add Menu' },
     { href: '/mess-outlets', label: "View All Outlets" }
 ];
 
@@ -19,18 +20,14 @@ const dropdownLinks = [
 const MessNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [isBookingsDropdownOpen, setIsBookingsDropdownOpen] = useState(false);
+    // const [showAddMenu, setShowAddMenu] = useState(false);  // State for showing AddMenu
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
-    const toggleBookingsDropdown = (e) => {
-        e.preventDefault();
-        setIsBookingsDropdownOpen(!isBookingsDropdownOpen);
-    };
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 bg-[#361a25]"> {/* Background color from UserNav */}
+            <nav className="fixed top-0 left-0 right-0 z-50 bg-[#361a25]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         {/* Menu button for mobile screens */}
@@ -63,6 +60,7 @@ const MessNav = () => {
                                         <a
                                             href={href}
                                             className="text-white px-3 py-2 rounded-md text-sm font-medium hover:bg-[#4a2433] transition-colors"
+                                            onClick={label === 'Add Menu' ? () => setShowAddMenu(true) : undefined}
                                         >
                                             {label}
                                         </a>
@@ -70,6 +68,7 @@ const MessNav = () => {
                                 ))}
                             </div>
                         </div>
+
                         <div className="flex items-center">
                             <div className="relative ml-3">
                                 <div>
@@ -112,6 +111,7 @@ const MessNav = () => {
                                 <a
                                     href={href}
                                     className="text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-[#4a2433] transition-colors"
+                                    onClick={label === 'Add Menu' ? () => setShowAddMenu(true) : undefined}
                                 >
                                     {label}
                                 </a>
@@ -120,8 +120,14 @@ const MessNav = () => {
                     </div>
                 </div>
             </nav>
+
+            {/* Conditionally render AddMenu */}
+            {showAddMenu && <AddMenu />}
         </>
     );
 };
 
 export default MessNav;
+
+
+
