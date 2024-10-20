@@ -21,6 +21,7 @@ import ContactUs from "./components/mess/ContactUs";
 import AddRoommateForm from "./pages/client/AddRoomate";
 import ViewBooking from "./pages/client/ViewBooking";
 import OwnerBookings from "./pages/recidencies/OwnerBooking";
+import AboutUs from "./pages/client/About"
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/mess-outlets" element={<MessOutlets />} />
                 <Route path="/explorenow" element={<ExploreNow />} />
                 <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/about-us" element={<AboutUs />} />
               </Route>
 
               <Route element={<ProtectedRoute allowedTypes={["Residency Owner"]} />}>
