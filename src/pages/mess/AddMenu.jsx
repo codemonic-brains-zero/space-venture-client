@@ -5,13 +5,6 @@ import 'firebase/database'; // Import Firebase database if you are using Firebas
 ///import { auth, fireDB } from '../mess/AddMenu.jsx';
 import { getFirestore } from "firebase/firestore";
 
-
-
-
-
-
-
-
 const AddMenu = () => {
   const [formData, setFormData] = useState({
     name: '',

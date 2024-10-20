@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MessNav from './MessNav';
+// import MessNav from './MessNav';
 
 const MessCard = ({ name, image, description, price, deliveryTime, rating }) => {
   return (
 
     <>
+    {/* <MessNav/> */}
+    
     
       {/* Mess Card with Transition */}
       <div className="flex flex-row bg-pink-100 border-2 border-pink-500 rounded-lg shadow-md overflow-hidden mb-6 w-full max-w-3xl mx-auto 
