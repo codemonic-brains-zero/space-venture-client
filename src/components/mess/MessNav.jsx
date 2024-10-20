@@ -2,15 +2,14 @@ import React, { useState } from 'react';
 import profile from '../../../backend/database/1727599451698-space-venture.png';
 import { FaBarsStaggered } from "react-icons/fa6";
 import { GrClose } from "react-icons/gr";
-import { RiArrowDownSFill, RiArrowRightSFill } from "react-icons/ri";
 import logo from '../../assets/common/logo.png';
-// import AddMenu from '../../pages/mess/AddMenu';
+import AddMenu from '../../pages/mess/AddMenu'; // Ensure this import path is correct
 
 const links = [
     { href: '/multi-mess-manager-home', label: 'Home' },
     { href: '/add-mess-outlet', label: 'Register Your Mess' },
-    // { href: '/add-menu', label: 'Add Menu' },
-    { href: '/mess-outlets', label: "View All Outlets" }
+    { href: '/mess-outlets', label: "View All Outlets" },
+    { href: '/add-menu', label: "Add Menu" },
 ];
 
 const dropdownLinks = [
@@ -20,7 +19,7 @@ const dropdownLinks = [
 const MessNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    // const [showAddMenu, setShowAddMenu] = useState(false);  // State for showing AddMenu
+    const [showAddMenu, setShowAddMenu] = useState(false); // State for showing AddMenu
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
@@ -128,6 +127,3 @@ const MessNav = () => {
 };
 
 export default MessNav;
-
-
-
