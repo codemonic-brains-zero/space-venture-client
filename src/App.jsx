@@ -23,6 +23,7 @@ import ViewBooking from "./pages/client/ViewBooking";
 import OwnerBookings from "./pages/recidencies/OwnerBooking";
 import AboutUs from "./pages/client/About"
 import AddMenu from "./pages/mess/AddMenu";
+import RegisterMess from "./pages/mess/RegisterMess";
 
 function App() {
   return (
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/multi-mess-manager-home" element={<MultiMessManagerHome />} />
                 <Route path="/mess-outlets" element={<MessOutlets />} />
                 <Route path="/add-menu" element={<AddMenu/>} />
+                <Route path="/register-mess" element={<RegisterMess/>} />
               </Route>
             </Route>
 

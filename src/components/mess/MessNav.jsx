@@ -4,10 +4,12 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import { GrClose } from "react-icons/gr";
 import logo from '../../assets/common/logo.png';
 import AddMenu from '../../pages/mess/AddMenu'; // Ensure this import path is correct
+import MessOutlets from '../../pages/mess/MessOutlets';
+import RegisterMess from '../../pages/mess/RegisterMess';
 
 const links = [
     { href: '/multi-mess-manager-home', label: 'Home' },
-    { href: '/add-mess-outlet', label: 'Register Your Mess' },
+    { href: '/register-mess', label: 'Register Your Mess' },
     { href: '/mess-outlets', label: "View All Outlets" },
     { href: '/add-menu', label: "Add Menu" },
 ];

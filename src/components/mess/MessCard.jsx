@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import MessNav from './MessNav';
+ import MessNav from './MessNav';
 
 const MessCard = ({ name, image, description, price, deliveryTime, rating }) => {
   return (
 
     <>
-    {/* <MessNav/> */}
+     <MessNav/> 
     
     
       {/* Mess Card with Transition */}
-      <div className="flex flex-row bg-pink-100 border-2 border-pink-500 rounded-lg shadow-md overflow-hidden mb-6 w-full max-w-3xl mx-auto 
-                      transform transition duration-300 hover:scale-105 hover:shadow-lg">
+      <div className='bg-[#f8d2d8]'>
+        <div className="flex flex-row bg-[#E8B4BC]  rounded-lg   mb-6 w-full max-w-3xl mx-auto 
+                      transform transition duration-300 hover:scale-105 ">
         {/* Image Section */}
         <div className="flex-shrink-0">
           <img src={image} alt={name} className="w-48 h-48 object-cover" />
@@ -52,6 +53,7 @@ const MessCard = ({ name, image, description, price, deliveryTime, rating }) => 
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
