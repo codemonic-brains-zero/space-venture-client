@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import MessNav from './MessNav';
+ import MessNav from './MessNav';
 
 const MessCard = ({ name, image, description, price, deliveryTime, rating }) => {
   return (
 
     <>
-    {/* <MessNav/> */}
+     <MessNav/> 
     
     
       {/* Mess Card with Transition */}
