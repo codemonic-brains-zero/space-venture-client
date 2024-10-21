@@ -284,11 +284,11 @@ const ExploreNow = () => {
         <div className="absolute inset-0 flex justify-center items-center">
 
         </div>
-        <h1 className="text-4xl mt-10 items-center justify-center absolute text-pink-400 font-bold">Explore Mess Menu</h1>
+        <h1 className="text-4xl mt-10 items-center justify-center absolute text-eggplant ml-96  font-extrabold">!...Explore Veg And Non-Veg Mess Menu Here...!</h1>
       </div>
 
       {/* Veg and Non-Veg Buttons */}
-      <div className="flex justify-center space-x-4 mb-8">
+      <div className="flex justify-center space-x-4 mt-32 mb-8">
         <button
           className={`py-2 px-4 rounded-lg  ${selectedMenu === 'veg' ? 'bg-green-500' : 'bg-yellow-300 border-2 border-yellow-500 text-black hover:bg-green-500'}`}
           onClick={() => handleMenuSelect('veg')}
@@ -306,7 +306,7 @@ const ExploreNow = () => {
 
       {/* Conditional Rendering of Menus */}
       {selectedMenu && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-7">
           {Object.keys(menuData[selectedMenu]).map((category) => (
             menuData[selectedMenu][category].map((item, idx) => (
               <MenuItem key={idx} item={item} addToCart={addToCart} />
@@ -334,16 +334,16 @@ const MenuItem = ({ item, addToCart }) => {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div className="border border-gray-300 rounded-lg p-4 shadow-md w-full transition-transform transform hover:scale-110 md:w-56">
+    <div className="bg-[#f7e6e9] flex flex-col items-center border-2 border-red-200 rounded-lg p-4 shadow-md w-full transition-transform transform hover:scale-110">
       <img
         src={item.image}
         alt={item.name}
-        className="w-full h-32 object-cover rounded-lg mb-4"
+        className="w-32 h-32 object-cover rounded-lg mb-4"
       />
-      <h3 className="text-lg font-semibold">{item.name}</h3>
-      <p className="text-gray-600 text-sm mb-2">{item.description}</p>
-      <p className="font-bold">₹{item.price}</p>
-      <p className="text-yellow-500 text-sm">Rating: {item.rating}⭐</p>
+      <h3 className="text-lg font-semibold text-center">{item.name}</h3>
+      <p className="text-gray-600 text-sm text-center mb-2">{item.description}</p>
+      <p className="font-bold text-center">₹{item.price}</p>
+      <p className="text-yellow-500 text-sm text-center">Rating: {item.rating}⭐</p>
 
       <div className="flex items-center space-x-4 mt-2">
         <input
@@ -354,8 +354,8 @@ const MenuItem = ({ item, addToCart }) => {
           onChange={(e) => setQuantity(e.target.value)}
         />
         <button
-          className="bg-blue-500 text-white py-1 px-3 rounded-lg text-sm"
-          onClick={() => addToCart({ ...item, quantity })}
+          className="bg-eggplant text-white py-1 px-3 rounded-lg"
+          onClick={() => addToCart({ ...item, quantity: parseInt(quantity) })}
         >
           Add to Cart
         </button>
