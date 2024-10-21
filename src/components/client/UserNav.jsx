@@ -14,6 +14,7 @@ const links = [
     // { href: '#', label: 'Track', hasDropdown: true },
     { href: '/room-mates', label: 'Find A Roommate' },
     // { href: '/add-roommate', label: 'Add Roommate' }
+    { href: '/about-us', label: 'About Us' },
 ];
 
 const dropdownLinks = [
