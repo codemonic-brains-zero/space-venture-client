@@ -40,6 +40,7 @@ import nv12 from "../../assets/tiffineimges/mutton.jpeg";
 const ExploreNow = () => {
   const [selectedMenu, setSelectedMenu] = useState(''); // State to track selected menu ('veg' or 'nonVeg')
   const [cart, setCart] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const menuData = {
     veg: {
@@ -272,6 +273,15 @@ const ExploreNow = () => {
     setCart([...cart, item]);
   };
 
+  const filteredMenuData = selectedMenu
+    ? Object.keys(menuData[selectedMenu]).reduce((acc, category) => {
+      const filteredItems = menuData[selectedMenu][category].filter(item =>
+        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      return [...acc, ...filteredItems];
+    }, [])
+    : [];
+
   return (
     <div className="container mx-auto p-4">
       {/* Banner Section */}
@@ -286,9 +296,18 @@ const ExploreNow = () => {
         </div>
         <h1 className="text-4xl mt-10 items-center justify-center absolute text-eggplant ml-96  font-extrabold">!...Explore Veg And Non-Veg Mess Menu Here...!</h1>
       </div>
+      <div className="flex justify-center mb-4 mt-24  h-16 bg-thulian-pink">
+        <input
+          type="text"
+          placeholder="Search for items..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="w-1/2 p-2 border text-black mt-4 mb-4 rounded-lg"
+        />
+      </div>
 
       {/* Veg and Non-Veg Buttons */}
-      <div className="flex justify-center space-x-4 mt-32 mb-8">
+      <div className="flex justify-center space-x-4 mt-10 mb-7 h-11">
         <button
           className={`py-2 px-4 rounded-lg  ${selectedMenu === 'veg' ? 'bg-green-500' : 'bg-yellow-300 border-2 border-yellow-500 text-black hover:bg-green-500'}`}
           onClick={() => handleMenuSelect('veg')}
@@ -312,6 +331,17 @@ const ExploreNow = () => {
               <MenuItem key={idx} item={item} addToCart={addToCart} />
             ))
           ))}
+        </div>
+      )}
+      {selectedMenu && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-7">
+          {filteredMenuData.length > 0 ? (
+            filteredMenuData.map((item, idx) => (
+              <MenuItem key={idx} item={item} addToCart={addToCart} />
+            ))
+          ) : (
+            <p className="col-span-4 text-center">No items found for "{searchQuery}".</p>
+          )}
         </div>
       )}
 

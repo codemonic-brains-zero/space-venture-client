@@ -138,23 +138,11 @@ const messData = [
 
 const MessOutlets = () => {
   return (
-  
     <div className="min-h-screen bg-gray-100 p-10">
-      <h1 className="text-3xl font-bold text-center mb-4 mt-12" >Mess Outlets</h1>
+      <h1 className="text-3xl font-bold text-center mb-4 mt-12">Mess Outlets</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-3">
-
-        {messData.map((mess) => (
-          <MessCard
-            key={mess.id}
-            name={mess.name}
-            image={mess.image}
-            description={mess.description}
-            price={mess.price}
-            deliveryTime={mess.deliveryTime}
-            rating={mess.rating}
-            reviews={mess.reviews}
-          />
-        ))}
+        {/* Pass messData to MessCard as props */}
+        <MessCard messOutlets={messData} />
       </div>
     </div>
   );
